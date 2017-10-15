@@ -22,6 +22,4 @@ Route::get('/logout', function(){
 	return redirect('/login');
 });
 
-// Route::get('/home', 'HomeController@index')->name('home');
-
 Route::resource('dashboard', 'DashboardController');

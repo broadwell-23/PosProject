@@ -8,8 +8,8 @@ Dashboard
 
 @push('stylesheets')
 <!-- page level plugin styles -->
-    <link rel="stylesheet" href="styles/climacons-font.css">
-    <link rel="stylesheet" href="vendor/rickshaw/rickshaw.min.css">
+<link rel="stylesheet" href="styles/climacons-font.css">
+<link rel="stylesheet" href="vendor/rickshaw/rickshaw.min.css">
 <!-- /page level plugin styles -->
 @endpush
 
