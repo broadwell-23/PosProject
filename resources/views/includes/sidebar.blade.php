@@ -36,6 +36,7 @@
 
       <!-- admin -->
       <li>
+        <a href="administrator">
           <i class="fa fa-user"></i>
           <span>Admin</span>
         </a>
