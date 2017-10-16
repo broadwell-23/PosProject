@@ -23,3 +23,4 @@ Route::get('/logout', function(){
 });
 
 Route::resource('dashboard', 'DashboardController');
+Route::resource('administrator', 'AdminController');

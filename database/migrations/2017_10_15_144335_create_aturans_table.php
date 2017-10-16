@@ -15,7 +15,7 @@ class CreateAturansTable extends Migration
     {
         Schema::create('aturans', function (Blueprint $table) {
             $table->increments('id');
-            $table->string('nama_aturan');
+            $table->string('isi_aturan');
             $table->string('keterangan');
             $table->timestamps();
         });
