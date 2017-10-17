@@ -23,4 +23,8 @@ Route::get('/logout', function(){
 });
 
 Route::resource('dashboard', 'DashboardController');
-Route::resource('administrator', 'AdminController');
+
+Route::get('administrator', 'AdminController@index');
+Route::post('administrator', 'AdminController@store');
+Route::put('administrator', 'AdminController@update');
+Route::delete('administrator', 'AdminController@destroy');

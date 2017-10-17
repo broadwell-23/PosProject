@@ -31,52 +31,38 @@ class AdminController extends Controller
     public function store(Request $request)
     {
         
-	        $user = new User;
-	        $user->name = $request->name;
-	        $user->email = $request->email;
-	        $user->password = bcrypt($request->password);
-	    try {
-	        $user->save();
-	        session(['message' => 'sukses']);
-	        return redirect()->action('AdminController@index');
-	    }
-	    catch(Exception $e){
-	        session(['message' => 'error','error' => $e]);
-	        return redirect()->action('AdminController@index');
-	    }
+	    $user = new User;
+	    $user->name = $request->name;
+	    $user->email = $request->email;
+	    $user->password = bcrypt($request->password);
+	    $user->save();
+	    session(['message' => 'bTambah']);
+	    return redirect()->action('AdminController@index');
     }
 
     public function update(Request $request)
     {
-            $user = User::find($request->id);
-            $user->name = $request->name;
-            $user->email = $request->email;
-            if ($request->password!=null) {
-                $user->password = bcrypt($request->password);
-            }
-        try {
-            $user->save();
-            session(['message' => 'sukses']);
-            return redirect()->action('AdminController@index');
+        $user = User::find($request->id);
+        $user->name = $request->name;
+        $user->email = $request->email;
+        if($request->password!=null) {
+            $pass = bcrypt($request->password);
+        } else {
+            $oldpass = User::where('id', $request->id)->first();
+            $pass = $oldpass->password;
         }
-        catch(Exception $e){
-            session(['message' => 'error','error' => $e]);
-            return redirect()->action('AdminController@index');
-        }
+        $user->password = $pass;
+        $user->save();
+        session(['message' => 'bUbah']);
+        return redirect()->action('AdminController@index');
     }
 
     public function destroy(Request $request)
     {
-            $user = User::find($request->id);
-        try {
-            $user->delete();
-            session(['message' => 'sukses']);
-            return redirect()->action('AdminController@index');
-        }
-        catch(Exception $e){
-            session(['message' => 'error','error' => $e]);
-            return redirect()->action('AdminController@index');
-        }
+        $user = User::find($request->id);
+        $user->delete();
+        session(['message' => 'bHapus']);
+        return redirect()->action('AdminController@index');   
     }
 
 }
