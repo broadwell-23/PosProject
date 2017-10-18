@@ -16,7 +16,6 @@ class CreateDokumenBarangTable extends Migration
         Schema::create('dokumen_barang', function (Blueprint $table) {
             $table->integer('barang_id');
             $table->integer('dokumen_id');
-            $table->timestamps();
         });
     }
 

@@ -14,7 +14,7 @@
 
     <!-- logo -->
     <div class="brand-logo">
-      <img src="images/logo-dark.png" height="15" alt="">
+      <img src="{{ asset("images/logo-dark.png") }}" height="15" alt="">
     </div>
     <!-- /logo -->
 
@@ -40,7 +40,7 @@
   <ul class="nav navbar-nav navbar-right hidden-xs">
     <li>
       <a href="javascript:;" data-toggle="dropdown">
-        <img src="images/avatar.jpg" class="header-avatar img-circle ml10" alt="user" title="user">
+        <img src="{{ asset("images/avatar.jpg") }}" class="header-avatar img-circle ml10" alt="user" title="user">
         <span class="pull-left">{{ Auth::user()->name }}</span>
       </a>
       <ul class="dropdown-menu">

@@ -16,7 +16,6 @@ class CreatePackingBarangTable extends Migration
         Schema::create('packing_barang', function (Blueprint $table) {
             $table->integer('barang_id');
             $table->integer('packing_id');
-            $table->timestamps();
         });
     }
 

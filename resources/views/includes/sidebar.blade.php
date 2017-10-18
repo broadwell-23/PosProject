@@ -27,7 +27,7 @@
 
       <!-- dashboard -->
       <li class="{{ Request::is('dashboard') ? 'active' : '' }}">
-        <a href="dashboard">
+        <a href="/dashboard">
           <i class="fa fa-bar-chart"></i>
           <span>Dashboard</span>
         </a>
@@ -36,7 +36,7 @@
 
       <!-- admin -->
       <li class="{{ Request::is('administrator') ? 'active' : '' }}">
-        <a href="administrator">
+        <a href="/administrator">
           <i class="fa fa-user"></i>
           <span>Admin</span>
         </a>
@@ -44,44 +44,51 @@
       <!-- /admin -->
 
       <!-- barang -->
-      <li class="{{ (Request::is('barang')||Request::is('packing')||Request::is('dokumen')||Request::is('aturan')||Request::is('tag')) ? 'active open' : '' }}">
+      <li class="{{ (Request::is('barang')||Request::is('packing')||Request::is('dokumen')||Request::is('aturan')||Request::is('tag')||Request::is('barang/tambah')||Request::is('barang/ubah/{id}')) ? 'active open' : '' }}">
         <a href="javascript:;">
           <i class="fa fa-briefcase"></i>
           <span>Informasi Barang</span>
         </a>
         <ul class="sub-menu">
-          <li>
-            <a href="barang">
+          <li class="{{ (Request::is('barang')||Request::is('barang/tambah')||Request::is('barang/ubah/{id}')) ? 'active' : '' }}">
+            <a href="/barang">
               <span>Daftar Barang</span>
             </a>
           </li>
-          <li class="{{ Request::is('packing') ? 'active' : '' }}">
-            <a href="packing">
-              <span><i>Packing</i></span>
+          <li class="{{ (Request::is('packing')||Request::is('dokumen')||Request::is('aturan')||Request::is('tag')) ? 'active open' : '' }}">
+            <a href="/barang">
+              <span>Detail Barang</span>
             </a>
-          </li>
-          <li class="{{ Request::is('dokumen') ? 'active' : '' }}">
-            <a href="dokumen">
-              <span>Dokumen Pendukung</span>
-            </a>
-          </li>
-          <li class="{{ Request::is('aturan') ? 'active' : '' }}">
-            <a href="aturan">
-              <span>Aturan</span>
-            </a>
-          </li>
-          <li class="{{ Request::is('tag') ? 'active' : '' }}">
-            <a href="tag">
-              <span><i>Tags</i></span>
-            </a>
-          </li>
+            <ul class="sub-menu">
+              <li class="{{ Request::is('packing') ? 'active' : '' }}">
+                <a href="/packing">
+                  <span><i>Packing</i></span>
+                </a>
+              </li>
+              <li class="{{ Request::is('dokumen') ? 'active' : '' }}">
+                <a href="/dokumen">
+                  <span>Dokumen Pendukung</span>
+                </a>
+              </li>
+              <li class="{{ Request::is('aturan') ? 'active' : '' }}">
+                <a href="/aturan">
+                  <span>Aturan</span>
+                </a>
+              </li>
+              <li class="{{ Request::is('tag') ? 'active' : '' }}">
+                <a href="/tag">
+                  <span><i>Tags</i></span>
+                </a>
+              </li>
+            </ul>
+          </li> 
         </ul>
       </li>
       <!-- /barang -->
 
       <!-- mitra -->
       <li class="{{ Request::is('mitra') ? 'active' : '' }}">
-        <a href="mitra">
+        <a href="/mitra">
           <i class="fa fa-institution"></i>
           <span>Mitra</span>
         </a>
@@ -90,7 +97,7 @@
 
       <!-- pesan -->
       <li class="{{ Request::is('pesan') ? 'active' : '' }}">
-        <a href="pesan">
+        <a href="/pesan">
           <i class="fa fa-comment"></i>
           <span>Pesan Masuk</span>
           <span class="label label-danger pull-right">

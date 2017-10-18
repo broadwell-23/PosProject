@@ -52,6 +52,9 @@
         <li>
           <a href="#">Informasi Barang</a>
         </li>
+        <li>
+          <a href="#">Detail Barang</a>
+        </li>
         <li class="active"><i>Packing</i></li>
       </ol>
     </div>

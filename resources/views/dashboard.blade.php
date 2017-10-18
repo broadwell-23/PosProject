@@ -56,7 +56,7 @@
         </div>
         <div class="widget-details">
           <small class="block">Welcome, </small>
-          <span class="h5 bold">Samuel Perkins</span>
+          <span class="h5 bold">{{ Auth::user()->name }}</span>
         </div>
       </section>
       <div class="widget bg-white">

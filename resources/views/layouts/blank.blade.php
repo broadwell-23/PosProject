@@ -13,15 +13,15 @@
   @stack('stylesheets')
 
   <!-- build:css({.tmp,app}) styles/app.min.css -->
-  <link rel="stylesheet" href="vendor/bootstrap/dist/css/bootstrap.css">
-  <link rel="stylesheet" href="vendor/perfect-scrollbar/css/perfect-scrollbar.css">
-  <link rel="stylesheet" href="styles/roboto.css">
-  <link rel="stylesheet" href="styles/font-awesome.css">
-  <link rel="stylesheet" href="styles/panel.css">
-  <link rel="stylesheet" href="styles/feather.css">
-  <link rel="stylesheet" href="styles/animate.css">
-  <link rel="stylesheet" href="styles/urban.css">
-  <link rel="stylesheet" href="styles/urban.skins.css">
+  <link rel="stylesheet" href="{{ asset("vendor/bootstrap/dist/css/bootstrap.css") }}">
+  <link rel="stylesheet" href="{{ asset("vendor/perfect-scrollbar/css/perfect-scrollbar.css") }}">
+  <link rel="stylesheet" href="{{ asset("styles/roboto.css") }}">
+  <link rel="stylesheet" href="{{ asset("styles/font-awesome.css") }}">
+  <link rel="stylesheet" href="{{ asset("styles/panel.css") }}">
+  <link rel="stylesheet" href="{{ asset("styles/feather.css") }}">
+  <link rel="stylesheet" href="{{ asset("styles/animate.css") }}">
+  <link rel="stylesheet" href="{{ asset("styles/urban.css") }}">
+  <link rel="stylesheet" href="{{ asset("styles/urban.skins.css") }}">
   <!-- endbuild -->
 
 </head>
@@ -47,22 +47,22 @@
   </div>
 
   <!-- build:js({.tmp,app}) scripts/app.min.js -->
-  <script src="scripts/extentions/modernizr.js"></script>
-  <script src="vendor/jquery/dist/jquery.js"></script>
-  <script src="vendor/bootstrap/dist/js/bootstrap.js"></script>
-  <script src="vendor/jquery.easing/jquery.easing.js"></script>
-  <script src="vendor/fastclick/lib/fastclick.js"></script>
-  <script src="vendor/onScreen/jquery.onscreen.js"></script>
-  <script src="vendor/jquery-countTo/jquery.countTo.js"></script>
-  <script src="vendor/perfect-scrollbar/js/perfect-scrollbar.jquery.js"></script>
-  <script src="scripts/ui/accordion.js"></script>
-  <script src="scripts/ui/animate.js"></script>
-  <script src="scripts/ui/link-transition.js"></script>
-  <script src="scripts/ui/panel-controls.js"></script>
-  <script src="scripts/ui/preloader.js"></script>
-  <script src="scripts/ui/toggle.js"></script>
-  <script src="scripts/urban-constants.js"></script>
-  <script src="scripts/extentions/lib.js"></script>
+  <script src="{{ asset("scripts/extentions/modernizr.js") }}"></script>
+  <script src="{{ asset("vendor/jquery/dist/jquery.js") }}"></script>
+  <script src="{{ asset("vendor/bootstrap/dist/js/bootstrap.js") }}"></script>
+  <script src="{{ asset("vendor/jquery.easing/jquery.easing.js") }}"></script>
+  <script src="{{ asset("vendor/fastclick/lib/fastclick.js") }}"></script>
+  <script src="{{ asset("vendor/onScreen/jquery.onscreen.js") }}"></script>
+  <script src="{{ asset("vendor/jquery-countTo/jquery.countTo.js") }}"></script>
+  <script src="{{ asset("vendor/perfect-scrollbar/js/perfect-scrollbar.jquery.js") }}"></script>
+  <script src="{{ asset("scripts/ui/accordion.js") }}"></script>
+  <script src="{{ asset("scripts/ui/animate.js") }}"></script>
+  <script src="{{ asset("scripts/ui/link-transition.js") }}"></script>
+  <script src="{{ asset("scripts/ui/panel-controls.js") }}"></script>
+  <script src="{{ asset("scripts/ui/preloader.js") }}"></script>
+  <script src="{{ asset("scripts/ui/toggle.js") }}"></script>
+  <script src="{{ asset("scripts/urban-constants.js") }}"></script>
+  <script src="{{ asset("scripts/extentions/lib.js") }}"></script>
   <!-- endbuild -->
 
 @stack('scripts')

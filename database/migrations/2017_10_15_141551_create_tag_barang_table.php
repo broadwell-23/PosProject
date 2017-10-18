@@ -16,7 +16,6 @@ class CreateTagBarangTable extends Migration
         Schema::create('tag_barang', function (Blueprint $table) {
             $table->integer('barang_id');
             $table->integer('tag_id');
-            $table->timestamps();
         });
     }
 

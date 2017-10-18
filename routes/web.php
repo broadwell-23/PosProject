@@ -30,8 +30,10 @@ Route::put('administrator', 'AdminController@update');
 Route::delete('administrator', 'AdminController@destroy');
 
 Route::get('barang', 'BarangController@index');
-Route::post('barang', 'BarangController@store');
-Route::put('barang', 'BarangController@update');
+Route::get('barang/tambah', 'BarangController@indexTambah');
+Route::post('barang/tambah', 'BarangController@store');
+Route::get('barang/ubah/{id}', 'BarangController@indexUbah');
+Route::put('barang/ubah/{id}', 'BarangController@update');
 Route::delete('barang', 'BarangController@destroy');
 
 Route::get('packing', 'PackingController@index');

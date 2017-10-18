@@ -16,7 +16,6 @@ class CreateAturanBarangTable extends Migration
         Schema::create('aturan_barang', function (Blueprint $table) {
             $table->integer('barang_id');
             $table->integer('aturan_id');
-            $table->timestamps();
         });
     }
 
