@@ -17,6 +17,7 @@ class CreatePesansTable extends Migration
             $table->increments('id');
             $table->string('nama');
             $table->string('isi_pesan');
+            $table->tinyInteger('status')->default(1);
             $table->timestamps();
         });
     }

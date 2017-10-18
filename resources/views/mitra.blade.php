@@ -2,7 +2,7 @@
 
 @section('title')
 
-<i class="fa fa-user"></i> Daftar Admin
+<i class="fa fa-institution"></i> Daftar Mitra
 
 @endsection
 
@@ -49,7 +49,7 @@
         <li>
           <a href="dashboard">Admin Panel</a>
         </li>
-        <li class="active">Admin</li>
+        <li class="active">Mitra</li>
       </ol>
     </div>
     <div class="panel-heading">
@@ -63,10 +63,10 @@
         <thead>
           <tr>
             <th>No</th>
-            <th>Nama</th>
-            <th>Email</th>
-            <th>Dibuat Pada</th>
-            <th>Diupdate Pada</th>
+            <th>Nama Mitra</th>
+            <th>Alamat</th>
+            <th>Telpon</th>
+            <th>Fax</th>
             <th></th>
           </tr>
         </thead>
@@ -74,10 +74,10 @@
           @foreach($datas as $no => $data)
           <tr>
             <td>{{ $no+1 }}</td>
-            <td>{{ $data->name }}</td>
-            <td>{{ $data->email }}</td>
-            <td>{{ $data->created_at }}</td>
-            <td>{{ $data->updated_at }}</td>
+            <td>{{ $data->nama_mitra }}</td>
+            <td>{{ $data->alamat }}</td>
+            <td>{{ $data->telp }}</td>
+            <td>{{ $data->fax }}</td>
             <td class="text-center">
               <button data-target="#modalUbah{{$data->id}}" class="btn btn-info btn-outline btn-xs" data-toggle="modal"><i class="fa fa-pencil"></i></button>
               <button data-target="#modalHapus{{$data->id}}" class="btn btn-danger btn-outline btn-xs" data-toggle="modal"><i class="fa fa-trash"></i></button>
@@ -98,28 +98,34 @@
         <div class="panel panel-success">
           <div class="panel-heading">
             <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
-            <h4 class="modal-title">Tambah Admin</h4>
+            <h4 class="modal-title">Tambah Mitra</h4>
           </div>
         </div>
       <div class="modal-body">
         <form method="POST" class="form-horizontal" role="form">
-          {{csrf_field()}}
+          {{ csrf_field() }}
           <div class="form-group">
-            <label class="col-sm-2 control-label">Nama</label>
+            <label class="col-sm-2 control-label">Nama Mitra</label>
             <div class="col-sm-9">
-              <input name="name" type="text" class="form-control" required>
+              <input name="nama_mitra" type="text" class="form-control" required>
             </div>
           </div>
           <div class="form-group">
-            <label class="col-sm-2 control-label">Email</label>
+            <label class="col-sm-2 control-label">Alamat</label>
             <div class="col-sm-9">
-              <input name="email" type="email" class="form-control" required>
+              <input name="alamat" type="text" class="form-control" required>
             </div>
           </div>
           <div class="form-group">
-            <label class="col-sm-2 control-label">Password</label>
+            <label class="col-sm-2 control-label">Telepon</label>
             <div class="col-sm-9">
-              <input name="password" type="password" class="form-control" required>
+              <input name="telp" type="text" class="form-control">
+            </div>
+          </div>
+          <div class="form-group">
+            <label class="col-sm-2 control-label">Fax</label>
+            <div class="col-sm-9">
+              <input name="fax" type="text" class="form-control">
             </div>
           </div>
         </div>
@@ -140,7 +146,7 @@
         <div class="panel panel-info">
           <div class="panel-heading">
             <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
-            <h4 class="modal-title">Ubah Admin</h4>
+            <h4 class="modal-title">Ubah Mitra</h4>
           </div>
         </div>
       <div class="modal-body">
@@ -149,21 +155,27 @@
           {{ method_field('PUT') }} 
           {{ csrf_field() }}                                    
           <div class="form-group">
-            <label class="col-sm-2 control-label">Nama</label>
+            <label class="col-sm-2 control-label">Nama Mitra</label>
             <div class="col-sm-9">
-              <input name="name" type="text" class="form-control" value="{{ $data->name }}" required>
+              <input name="nama_mitra" type="text" class="form-control" value="{{ $data->nama_mitra }}" required>
             </div>
           </div>
           <div class="form-group">
-            <label class="col-sm-2 control-label">Email</label>
+            <label class="col-sm-2 control-label">Alamat</label>
             <div class="col-sm-9">
-              <input name="email" type="email" class="form-control" value="{{ $data->email }}" required>
+              <input name="alamat" type="text" class="form-control" value="{{ $data->alamat }}" required>
             </div>
           </div>
           <div class="form-group">
-            <label class="col-sm-2 control-label">Password</label>
+            <label class="col-sm-2 control-label">Telepon</label>
             <div class="col-sm-9">
-              <input name="password" type="password" class="form-control" placeholder="(jika dikosongkan, password tidak berubah)">
+              <input name="telp" type="text" class="form-control" value="{{ $data->telp }}">
+            </div>
+          </div>
+          <div class="form-group">
+            <label class="col-sm-2 control-label">Fax</label>
+            <div class="col-sm-9">
+              <input name="fax" type="text" class="form-control" value="{{ $data->fax }}">
             </div>
           </div>
         </div>
@@ -183,7 +195,7 @@
         <div class="panel panel-danger">
           <div class="panel-heading">
             <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
-            <h4 class="modal-title">Hapus Admin</h4>
+            <h4 class="modal-title">Hapus Mitra</h4>
           </div>
         </div>
       <div class="modal-body">
@@ -191,7 +203,7 @@
           <input type="hidden" name="id" value="{{ $data->id }}">
           {{ method_field('DELETE') }} 
           {{ csrf_field() }}       
-          <center>Data <strong>{{ $data->email }}</strong> Akan Dihapus, Apakah Anda Yakin?</center>
+          <center>Data Mitra <strong>{{ $data->nama_mitra }}</strong> Akan Dihapus, Apakah Anda Yakin?</center>
         </div>
         <div class="modal-footer bordered">
           <button type="button" class="btn btn-default btn-outline btn-round" data-dismiss="modal">Tidak</button>

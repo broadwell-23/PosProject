@@ -2,7 +2,7 @@
 
 @section('title')
 
-<i class="fa fa-user"></i> Daftar Admin
+<i class="fa fa-comment"></i> Daftar Pesan Masuk
 
 @endsection
 
@@ -16,20 +16,11 @@
 
 <!-- main area -->
 <div class="main-content">
-  @if(session()->get('message')=="bTambah")
-  <!-- Success Alert -->
-  <div class="alert alert-success alert-dismissable">
-    <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
-    Yay! Data pada aplikasi berhasil di<strong>tambah</strong>.
-  </div>
-  <!-- /Success Alert -->
-  {{session()->forget('message')}}
-  @endif
   @if(session()->get('message')=="bUbah")
   <!-- Success Alert -->
   <div class="alert alert-info alert-dismissable">
     <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
-    Yay! Data pada aplikasi berhasil di<strong>ubah</strong>.
+    Yay! Status berhasil di<strong>ubah</strong>.
   </div>
   <!-- /Success Alert -->
   {{session()->forget('message')}}
@@ -38,7 +29,7 @@
   <!-- Success Alert -->
   <div class="alert alert-danger alert-dismissable">
     <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
-    Yay! Data pada aplikasi berhasil di<strong>hapus</strong>.
+    Yay! Pesan berhasil di<strong>hapus</strong>.
   </div>
   <!-- /Success Alert -->
   {{session()->forget('message')}}
@@ -49,14 +40,8 @@
         <li>
           <a href="dashboard">Admin Panel</a>
         </li>
-        <li class="active">Admin</li>
+        <li class="active">Pesan Masuk</li>
       </ol>
-    </div>
-    <div class="panel-heading">
-      <button data-target="#modalTambah" class="btn btn-success btn-round btn-icon" style="float: right" data-toggle="modal">
-        <i class="fa fa-plus"></i>
-        <span>Tambah Data</span>
-      </button>
     </div>
     <div class="panel-body">
       <table class="table table-striped responsive">
@@ -64,9 +49,9 @@
           <tr>
             <th>No</th>
             <th>Nama</th>
-            <th>Email</th>
-            <th>Dibuat Pada</th>
-            <th>Diupdate Pada</th>
+            <th>Isi Pesan</th>
+            <th>Dikirim Pada</th>
+            <th>Status</th>
             <th></th>
           </tr>
         </thead>
@@ -74,12 +59,18 @@
           @foreach($datas as $no => $data)
           <tr>
             <td>{{ $no+1 }}</td>
-            <td>{{ $data->name }}</td>
-            <td>{{ $data->email }}</td>
+            <td>{{ $data->nama }}</td>
+            <td>{{ $data->isi_pesan }}</td>
             <td>{{ $data->created_at }}</td>
-            <td>{{ $data->updated_at }}</td>
+            <td>
+              @if($data->status==1)
+                <span class="label label-danger">Belum Ditanggapi</span>
+              @else
+                <span class="label label-success">Sudah Ditanggapi</span>
+              @endif
+            </td>
             <td class="text-center">
-              <button data-target="#modalUbah{{$data->id}}" class="btn btn-info btn-outline btn-xs" data-toggle="modal"><i class="fa fa-pencil"></i></button>
+              <button data-target="#modalUbah{{$data->id}}" class="btn btn-info btn-outline btn-xs" data-toggle="modal"><i class="fa fa-pencil"></i> Status</button>
               <button data-target="#modalHapus{{$data->id}}" class="btn btn-danger btn-outline btn-xs" data-toggle="modal"><i class="fa fa-trash"></i></button>
             </td>
           </tr>
@@ -91,47 +82,6 @@
 </div>
 <!-- /main area -->
 
-<!-- modalTambah -->
-<div id="modalTambah" class="modal bs-modal-sm" tabindex="-1" role="dialog" aria-hidden="true">
-  <div class="modal-dialog">
-    <div class="modal-content">
-        <div class="panel panel-success">
-          <div class="panel-heading">
-            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
-            <h4 class="modal-title">Tambah Admin</h4>
-          </div>
-        </div>
-      <div class="modal-body">
-        <form method="POST" class="form-horizontal" role="form">
-          {{csrf_field()}}
-          <div class="form-group">
-            <label class="col-sm-2 control-label">Nama</label>
-            <div class="col-sm-9">
-              <input name="name" type="text" class="form-control" required>
-            </div>
-          </div>
-          <div class="form-group">
-            <label class="col-sm-2 control-label">Email</label>
-            <div class="col-sm-9">
-              <input name="email" type="email" class="form-control" required>
-            </div>
-          </div>
-          <div class="form-group">
-            <label class="col-sm-2 control-label">Password</label>
-            <div class="col-sm-9">
-              <input name="password" type="password" class="form-control" required>
-            </div>
-          </div>
-        </div>
-        <div class="modal-footer bordered">
-          <button type="submit" class="btn btn-success btn-outline btn-round">Simpan</button>
-        </div>
-      </form>
-    </div>
-  </div>
-</div>
-<!-- /modalTambah -->
-
 @foreach($datas as $data)
 <!-- modalUbah -->
 <div id="modalUbah{{$data->id}}" class="modal bs-modal-sm" tabindex="-1" role="dialog" aria-hidden="true">
@@ -140,7 +90,7 @@
         <div class="panel panel-info">
           <div class="panel-heading">
             <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
-            <h4 class="modal-title">Ubah Admin</h4>
+            <h4 class="modal-title">Ubah Status Pesan</h4>
           </div>
         </div>
       <div class="modal-body">
@@ -148,24 +98,30 @@
           <input type="hidden" name="id" value="{{ $data->id }}">
           {{ method_field('PUT') }} 
           {{ csrf_field() }}                                    
-          <div class="form-group">
-            <label class="col-sm-2 control-label">Nama</label>
-            <div class="col-sm-9">
-              <input name="name" type="text" class="form-control" value="{{ $data->name }}" required>
+          <center>
+          Status Pesan : 
+            <div class="btn-group" data-toggle="buttons">
+              @if($data->status==1)
+              <label class="btn btn-default no-margin active">
+                <input name="status" type="radio" name="options" id="option1" value="1">
+                <i class="fa fa-close mr5"></i>Belum Ditanggapi
+              </label>
+              <label class="btn btn-default">
+                <input name="status" type="radio" name="options" id="option2" value="0">
+                <i class="fa fa-check mr5"></i>Sudah Ditanggapi
+              </label>
+              @else
+              <label class="btn btn-default">
+                <input name="status" type="radio" name="options" id="option1" value="1">
+                <i class="fa fa-close mr5"></i>Belum Ditanggapi
+              </label>
+              <label class="btn btn-default no-margin active">
+                <input name="status" type="radio" name="options" id="option2" value="0">
+                <i class="fa fa-check mr5"></i>Sudah Ditanggapi
+              </label>
+              @endif
             </div>
-          </div>
-          <div class="form-group">
-            <label class="col-sm-2 control-label">Email</label>
-            <div class="col-sm-9">
-              <input name="email" type="email" class="form-control" value="{{ $data->email }}" required>
-            </div>
-          </div>
-          <div class="form-group">
-            <label class="col-sm-2 control-label">Password</label>
-            <div class="col-sm-9">
-              <input name="password" type="password" class="form-control" placeholder="(jika dikosongkan, password tidak berubah)">
-            </div>
-          </div>
+          </center>
         </div>
         <div class="modal-footer bordered">
           <button type="submit" class="btn btn-info btn-outline btn-round">Simpan</button>
@@ -183,7 +139,7 @@
         <div class="panel panel-danger">
           <div class="panel-heading">
             <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
-            <h4 class="modal-title">Hapus Admin</h4>
+            <h4 class="modal-title">Hapus Pesan</h4>
           </div>
         </div>
       <div class="modal-body">
@@ -191,7 +147,7 @@
           <input type="hidden" name="id" value="{{ $data->id }}">
           {{ method_field('DELETE') }} 
           {{ csrf_field() }}       
-          <center>Data <strong>{{ $data->email }}</strong> Akan Dihapus, Apakah Anda Yakin?</center>
+          <center>Satu Pesan dari <strong>{{ $data->nama }}</strong> Akan Dihapus, Apakah Anda Yakin?</center>
         </div>
         <div class="modal-footer bordered">
           <button type="button" class="btn btn-default btn-outline btn-round" data-dismiss="modal">Tidak</button>

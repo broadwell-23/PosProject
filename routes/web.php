@@ -28,3 +28,37 @@ Route::get('administrator', 'AdminController@index');
 Route::post('administrator', 'AdminController@store');
 Route::put('administrator', 'AdminController@update');
 Route::delete('administrator', 'AdminController@destroy');
+
+Route::get('barang', 'BarangController@index');
+Route::post('barang', 'BarangController@store');
+Route::put('barang', 'BarangController@update');
+Route::delete('barang', 'BarangController@destroy');
+
+Route::get('packing', 'PackingController@index');
+Route::post('packing', 'PackingController@store');
+Route::put('packing', 'PackingController@update');
+Route::delete('packing', 'PackingController@destroy');
+
+Route::get('dokumen', 'DokumenController@index');
+Route::post('dokumen', 'DokumenController@store');
+Route::put('dokumen', 'DokumenController@update');
+Route::delete('dokumen', 'DokumenController@destroy');
+
+Route::get('aturan', 'AturanController@index');
+Route::post('aturan', 'AturanController@store');
+Route::put('aturan', 'AturanController@update');
+Route::delete('aturan', 'AturanController@destroy');
+
+Route::get('tag', 'TagController@index');
+Route::post('tag', 'TagController@store');
+Route::put('tag', 'TagController@update');
+Route::delete('tag', 'TagController@destroy');
+
+Route::get('mitra', 'MitraController@index');
+Route::post('mitra', 'MitraController@store');
+Route::put('mitra', 'MitraController@update');
+Route::delete('mitra', 'MitraController@destroy');
+
+Route::get('pesan', 'PesanController@index');
+Route::put('pesan', 'PesanController@update');
+Route::delete('pesan', 'PesanController@destroy');

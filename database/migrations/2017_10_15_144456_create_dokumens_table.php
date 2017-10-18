@@ -17,7 +17,7 @@ class CreateDokumensTable extends Migration
             $table->increments('id');
             $table->string('nama_dokumen');
             $table->string('pengeluar_dokumen');
-            $table->string('keterangan');
+            $table->string('keterangan')->nullable();
             $table->timestamps();
         });
     }

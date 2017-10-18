@@ -17,8 +17,8 @@ class CreateMitrasTable extends Migration
             $table->increments('id');
             $table->string('nama_mitra');
             $table->string('alamat');
-            $table->string('telp');
-            $table->string('fax');
+            $table->string('telp')->nullable();
+            $table->string('fax')->nullable();
             $table->timestamps();
         });
     }

@@ -5,7 +5,7 @@
 
     <!-- logo -->
     <div class="brand-logo">
-      <img src="images/logo.png" height="15" alt="">
+      <span style="color: white;"><strong>ADMIN PANEL</strong></span>
     </div>
     <!-- /logo -->
 
@@ -26,7 +26,7 @@
     <ul class="nav">
 
       <!-- dashboard -->
-      <li>
+      <li class="{{ Request::is('dashboard') ? 'active' : '' }}">
         <a href="dashboard">
           <i class="fa fa-bar-chart"></i>
           <span>Dashboard</span>
@@ -35,7 +35,7 @@
       <!-- /dashboard -->
 
       <!-- admin -->
-      <li>
+      <li class="{{ Request::is('administrator') ? 'active' : '' }}">
         <a href="administrator">
           <i class="fa fa-user"></i>
           <span>Admin</span>
@@ -44,34 +44,34 @@
       <!-- /admin -->
 
       <!-- barang -->
-      <li>
-        <a href="#">
+      <li class="{{ (Request::is('barang')||Request::is('packing')||Request::is('dokumen')||Request::is('aturan')||Request::is('tag')) ? 'active open' : '' }}">
+        <a href="javascript:;">
           <i class="fa fa-briefcase"></i>
           <span>Informasi Barang</span>
         </a>
         <ul class="sub-menu">
           <li>
-            <a href="#">
+            <a href="barang">
               <span>Daftar Barang</span>
             </a>
           </li>
-          <li>
-            <a href="#">
+          <li class="{{ Request::is('packing') ? 'active' : '' }}">
+            <a href="packing">
               <span><i>Packing</i></span>
             </a>
           </li>
-          <li>
-            <a href="#">
+          <li class="{{ Request::is('dokumen') ? 'active' : '' }}">
+            <a href="dokumen">
               <span>Dokumen Pendukung</span>
             </a>
           </li>
-          <li>
-            <a href="#">
+          <li class="{{ Request::is('aturan') ? 'active' : '' }}">
+            <a href="aturan">
               <span>Aturan</span>
             </a>
           </li>
-          <li>
-            <a href="#">
+          <li class="{{ Request::is('tag') ? 'active' : '' }}">
+            <a href="tag">
               <span><i>Tags</i></span>
             </a>
           </li>
@@ -80,8 +80,8 @@
       <!-- /barang -->
 
       <!-- mitra -->
-      <li>
-        <a href="#">
+      <li class="{{ Request::is('mitra') ? 'active' : '' }}">
+        <a href="mitra">
           <i class="fa fa-institution"></i>
           <span>Mitra</span>
         </a>
@@ -89,11 +89,13 @@
       <!-- /mitra -->
 
       <!-- pesan -->
-      <li>
-        <a href="#">
+      <li class="{{ Request::is('pesan') ? 'active' : '' }}">
+        <a href="pesan">
           <i class="fa fa-comment"></i>
-          <span>Pesan</span>
-          <span class="label label-danger pull-right">23</span>
+          <span>Pesan Masuk</span>
+          <span class="label label-danger pull-right">
+            {{ App\Pesan::where('status', 1)->count() }}
+          </span>
         </a>
       </li>
       <!-- /pesan -->
