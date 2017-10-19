@@ -44,13 +44,13 @@
       <!-- /admin -->
 
       <!-- barang -->
-      <li class="{{ (Request::is('barang')||Request::is('packing')||Request::is('dokumen')||Request::is('aturan')||Request::is('tag')||Request::is('barang/tambah')||Request::is('barang/ubah/{id}')) ? 'active open' : '' }}">
+      <li class="{{ (Request::is('barang')||Request::is('packing')||Request::is('dokumen')||Request::is('aturan')||Request::is('tag')||Request::is('barang/tambah')) ? 'active open' : '' }}">
         <a href="javascript:;">
           <i class="fa fa-briefcase"></i>
           <span>Informasi Barang</span>
         </a>
         <ul class="sub-menu">
-          <li class="{{ (Request::is('barang')||Request::is('barang/tambah')||Request::is('barang/ubah/{id}')) ? 'active' : '' }}">
+          <li class="{{ (Request::is('barang')||Request::is('barang/tambah')) ? 'active' : '' }}">
             <a href="/barang">
               <span>Daftar Barang</span>
             </a>

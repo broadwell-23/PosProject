@@ -49,9 +49,77 @@
             {{ method_field('PUT') }} 
             {{ csrf_field() }}                       
             <div class="form-group">
-              <label class="col-sm-2 control-label">Nama Barang</label>
+              <label class="col-sm-2 control-label">Nama Barang<small><sup><i class="fa fa-star" style="color: red"></i></sup></small></label>
               <div class="col-sm-10">
                 <input name="nama_barang" type="text" class="form-control" value="{{ $data->nama_barang }}" required>
+              </div>
+            </div>
+            <div class="form-group">
+              <label class="col-sm-2 control-label"><i>Packing</i></label>
+              <div class="col-xs-10 mb25">
+                <select name="packing_id[]" data-placeholder="Pilih Cara Packing" multiple class="chosen" style="width: 100%;">
+                  <option value=""></option>
+                  @foreach($packings as $data)
+                    <option value="{{ $data->id }}"
+                      @foreach($selected_packings as $selected) 
+                        @if($data->id==$selected->id)
+                          selected
+                        @endif
+                      @endforeach
+                    >{{ $data->nama_packing }}</option>
+                  @endforeach
+                </select>
+              </div>
+            </div>
+            <div class="form-group">
+              <label class="col-sm-2 control-label">Dokumen Pendukung</label>
+              <div class="col-xs-10 mb25">
+                <select name="dokumen_id[]" data-placeholder="Pilih Dokumen Pendukung" multiple class="chosen" style="width: 100%;">
+                  <option value=""></option>
+                  @foreach($dokumens as $data)
+                    <option value="{{ $data->id }}"
+                      @foreach($selected_dokumens as $selected) 
+                        @if($data->id==$selected->id)
+                          selected
+                        @endif
+                      @endforeach
+                    >{{ $data->nama_dokumen }}</option>
+                  @endforeach
+                </select>
+              </div>
+            </div>
+            <div class="form-group">
+              <label class="col-sm-2 control-label">Aturan</label>
+              <div class="col-xs-10 mb25">
+                <select name="aturan_id[]" data-placeholder="Pilih Aturan" multiple class="chosen" style="width: 100%;">
+                  <option value=""></option>
+                  @foreach($aturans as $data)
+                    <option value="{{ $data->id }}"
+                      @foreach($selected_aturans as $selected) 
+                        @if($data->id==$selected->id)
+                          selected
+                        @endif
+                      @endforeach
+                    >{{ $data->isi_aturan }}</option>
+                  @endforeach
+                </select>
+              </div>
+            </div>
+            <div class="form-group">
+              <label class="col-sm-2 control-label"><i>Tags</i></label>
+              <div class="col-xs-10 mb25">
+                <select name="tag_id[]" data-placeholder="Pilih Tag" multiple class="chosen" style="width: 100%;">
+                  <option value=""></option>
+                  @foreach($tags as $data)
+                    <option value="{{ $data->id }}"
+                      @foreach($selected_tags as $selected) 
+                        @if($data->id==$selected->id)
+                          selected
+                        @endif
+                      @endforeach
+                    >{{ $data->nama_tag }}</option>
+                  @endforeach
+                </select>
               </div>
             </div>
             <div class="form-group">
@@ -60,8 +128,14 @@
                 <input name="keterangan" type="text" class="form-control" value="{{ $data->keterangan }}">
               </div>
             </div>
-
-            <button type="submit" class="btn btn-success btn-outline btn-round" style="float: right">Simpan</button>
+            <div class="form-group">
+              <div class="col-sm-2">
+                <small><p><sup><i class="fa fa-star" style="color: red"></i></sup>tidak boleh kosong</p></small>
+              </div>
+              <div class="col-sm-10">
+                <button type="submit" class="btn btn-info btn-outline btn-round" style="float: right">Simpan</button>
+              </div>
+            </div>
           </form>
         </div>
       </div>

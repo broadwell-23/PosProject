@@ -48,7 +48,7 @@
           <form method="POST" class="form-horizontal bordered-group" role="form">
             {{ csrf_field() }}
             <div class="form-group">
-              <label class="col-sm-2 control-label">Nama Barang</label>
+              <label class="col-sm-2 control-label">Nama Barang<small><sup><i class="fa fa-star" style="color: red"></i></sup></small></label>
               <div class="col-sm-10">
                 <input name="nama_barang" type="text" class="form-control" required>
               </div>
@@ -103,8 +103,14 @@
                 <input name="keterangan" type="text" class="form-control">
               </div>
             </div>
-
-            <button type="submit" class="btn btn-success btn-outline btn-round" style="float: right">Simpan</button>
+            <div class="form-group">
+              <div class="col-sm-2">
+                <small><p><sup><i class="fa fa-star" style="color: red"></i></sup>tidak boleh kosong</p></small>
+              </div>
+              <div class="col-sm-10">
+                <button type="submit" class="btn btn-success btn-outline btn-round" style="float: right">Simpan</button>
+              </div>
+            </div>
           </form>
         </div>
       </div>
