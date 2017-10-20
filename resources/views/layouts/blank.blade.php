@@ -3,7 +3,7 @@
 
 <head>
   <meta charset="utf-8">
-  <title>Informasi Pengiriman Barang</title>
+  <title>Sistem Informasi Barang</title>
   <meta name="description" content="">
   <meta name="viewport" content="width=device-width">
   <link rel="shortcut icon" href="/favicon.ico">
