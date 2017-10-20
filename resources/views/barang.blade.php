@@ -81,6 +81,11 @@
           <tr>
             <th>No</th>
             <th>Nama Barang</th>
+            <th><i>Packing</i></th>
+            <th>Dokumen Pendukung</th>
+            <th>Pengeluar Dokumen</th>
+            <th>Aturan</th>
+            <th><i>Tags</i></th>
             <th>Keterangan</th>
             <th></th>
           </tr>
@@ -90,6 +95,31 @@
           <tr>
             <td>{{ $no+1 }}</td>
             <td>{{ $data->nama_barang }}</td>
+            <td>
+              @foreach($packings as $packing)
+                <span class="label label-default">{{ $packing->nama_packing }}</span><br>
+              @endforeach
+            </td>
+            <td>
+              @foreach($dokumens as $dokumen)
+                <span class="label label-default">{{ $dokumen->nama_dokumen }}</span><br>
+              @endforeach
+            </td>
+            <td>
+              @foreach($dokumens as $dokumen)
+                <span class="label label-default">{{ $dokumen->pengeluar_dokumen }}</span><br>
+              @endforeach
+            </td>
+            <td>
+              @foreach($aturans as $aturan)
+                {{ $aturan->isi_aturan }}<br>
+              @endforeach
+            </td>
+            <td>
+              @foreach($tags as $tag)
+                <span class="label label-primary">{{ $tag->nama_tag }}</span><br>
+              @endforeach
+            </td>
             <td>{{ $data->keterangan }}</td>
             <td class="text-center">
               <a href="/barang/ubah/{{$data->id}}">

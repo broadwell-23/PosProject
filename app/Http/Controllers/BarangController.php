@@ -29,7 +29,14 @@ class BarangController extends Controller
     public function index()
     {
         $datas = Barang::all();
-        return view('barang', compact('datas'));
+        foreach ($datas as $data) {
+            $barang = Barang::find($data->id);
+            $packings = $barang->packings()->get();
+            $dokumens = $barang->dokumens()->get();
+            $aturans = $barang->aturans()->get();
+            $tags = $barang->tags()->get();
+        }
+        return view('barang', compact('datas', 'packings', 'dokumens', 'aturans', 'tags'));
     }
 
     public function indexTambah()

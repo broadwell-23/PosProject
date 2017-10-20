@@ -56,7 +56,7 @@
             </div>
             <div class="form-group">
               <label class="col-sm-2 control-label"><i>Packing</i></label>
-              <div class="col-xs-10 mb25">
+              <div class="col-xs-9 mb25">
                 <select name="packing_id[]" data-placeholder="Pilih Cara Packing" multiple class="chosen" style="width: 100%;">
                   <option value=""></option>
                   @foreach($packings as $data)
@@ -70,10 +70,17 @@
                   @endforeach
                 </select>
               </div>
+              <div class="col-sm-1">
+                <a href="/packing">
+                  <button class="btn btn-success btn-icon-icon btn mr5 pull-right">
+                  <i class="fa fa-plus"></i>
+                </button>
+                </a>
+              </div>
             </div>
             <div class="form-group">
               <label class="col-sm-2 control-label">Dokumen Pendukung</label>
-              <div class="col-xs-10 mb25">
+              <div class="col-xs-9 mb25">
                 <select name="dokumen_id[]" data-placeholder="Pilih Dokumen Pendukung" multiple class="chosen" style="width: 100%;">
                   <option value=""></option>
                   @foreach($dokumens as $data)
@@ -87,10 +94,17 @@
                   @endforeach
                 </select>
               </div>
+              <div class="col-sm-1">
+                <a href="/dokumen">
+                  <button class="btn btn-success btn-icon-icon btn mr5 pull-right">
+                  <i class="fa fa-plus"></i>
+                </button>
+                </a>
+              </div>
             </div>
             <div class="form-group">
               <label class="col-sm-2 control-label">Aturan</label>
-              <div class="col-xs-10 mb25">
+              <div class="col-xs-9 mb25">
                 <select name="aturan_id[]" data-placeholder="Pilih Aturan" multiple class="chosen" style="width: 100%;">
                   <option value=""></option>
                   @foreach($aturans as $data)
@@ -104,10 +118,17 @@
                   @endforeach
                 </select>
               </div>
+              <div class="col-sm-1">
+                <a href="/aturan">
+                  <button class="btn btn-success btn-icon-icon btn mr5 pull-right">
+                  <i class="fa fa-plus"></i>
+                </button>
+                </a>
+              </div>
             </div>
             <div class="form-group">
               <label class="col-sm-2 control-label"><i>Tags</i></label>
-              <div class="col-xs-10 mb25">
+              <div class="col-xs-9 mb25">
                 <select name="tag_id[]" data-placeholder="Pilih Tag" multiple class="chosen" style="width: 100%;">
                   <option value=""></option>
                   @foreach($tags as $data)
@@ -120,6 +141,13 @@
                     >{{ $data->nama_tag }}</option>
                   @endforeach
                 </select>
+              </div>
+              <div class="col-sm-1">
+                <a href="/tag">
+                  <button class="btn btn-success btn-icon-icon btn mr5 pull-right">
+                  <i class="fa fa-plus"></i>
+                </button>
+                </a>
               </div>
             </div>
             <div class="form-group">
