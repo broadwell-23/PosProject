@@ -105,14 +105,19 @@
         <form method="POST" class="form-horizontal" role="form">
           {{ csrf_field() }}
           <div class="form-group">
-            <label class="col-sm-3 control-label">Nama <i>Tag</i></label>
+            <label class="col-sm-3 control-label">Nama <i>Tag</i><small><sup><i class="fa fa-star" style="color: red"></i></sup></small></label>
             <div class="col-sm-8">
               <input name="nama_tag" type="text" class="form-control" required>
             </div>
           </div>
         </div>
         <div class="modal-footer bordered">
-          <button type="submit" class="btn btn-success btn-outline btn-round">Simpan</button>
+          <div class="col-sm-3">
+            <small><p><sup><i class="fa fa-star" style="color: red"></i></sup>tidak boleh kosong</p></small>
+          </div>
+          <div class="col-sm-9">
+            <button type="submit" class="btn btn-success btn-outline btn-round">Simpan</button>
+          </div>
         </div>
       </form>
     </div>
@@ -137,14 +142,19 @@
           {{ method_field('PUT') }} 
           {{ csrf_field() }}                                    
           <div class="form-group">
-            <label class="col-sm-3 control-label">Nama <i>Tag</i></label>
+            <label class="col-sm-3 control-label">Nama <i>Tag</i><small><sup><i class="fa fa-star" style="color: red"></i></sup></small></label>
             <div class="col-sm-8">
               <input name="nama_tag" type="text" class="form-control" value="{{ $data->nama_tag }}" required>
             </div>
           </div>
         </div>
         <div class="modal-footer bordered">
-          <button type="submit" class="btn btn-info btn-outline btn-round">Simpan</button>
+          <div class="col-sm-3">
+            <small><p><sup><i class="fa fa-star" style="color: red"></i></sup>tidak boleh kosong</p></small>
+          </div>
+          <div class="col-sm-9">
+            <button type="submit" class="btn btn-info btn-outline btn-round">Simpan</button>
+          </div>
         </div>
       </form>
     </div>

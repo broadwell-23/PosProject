@@ -21,27 +21,27 @@
   <div class="col-md-4">
     <div>
       <div class="widget bg-white">
-        <div class="widget-icon bg-blue pull-left fa fa-microphone">
+        <div class="widget-icon bg-blue pull-left fa fa-user">
         </div>
         <div class="overflow-hidden">
-          <span class="widget-title">8,372K</span>
-          <span class="widget-subtitle">Registered users</span>
+          <span class="widget-title">{{ $user }}</span>
+          <span class="widget-subtitle">Jumlah Admin</span>
         </div>
       </div>
       <div class="widget bg-white">
-        <div class="widget-icon bg-danger pull-left fa fa-tint">
+        <div class="widget-icon bg-success pull-left fa fa-briefcase">
         </div>
         <div class="overflow-hidden">
-          <span class="widget-title percent">86</span>
-          <span class="widget-subtitle">Revenue increase</span>
+          <span class="widget-title">{{ $barang }}</span>
+          <span class="widget-subtitle">Jumlah Barang</span>
         </div>
       </div>
       <div class="widget bg-white">
-        <div class="widget-icon bg-success pull-left fa fa-paper-plane">
+        <div class="widget-icon bg-info pull-left fa fa-archive">
         </div>
         <div class="overflow-hidden">
-          <span class="widget-title">7,355K</span>
-          <span class="widget-subtitle">Pending orders</span>
+          <span class="widget-title">{{ $packing }}</span>
+          <span class="widget-subtitle">Jumlah <i>Packing</i></span>
         </div>
       </div>
     </div>
@@ -50,29 +50,26 @@
     <div>
       <section class="widget bg-lightblue">
         <div class="widget-details">
-          <a href="javascript:;" class="pull-left relative">
-            <img src="images/avatar.jpg" class="avatar avatar-sm img-circle bordered" alt="">
-          </a>
-        </div>
-        <div class="widget-details">
-          <small class="block">Welcome, </small>
-          <span class="h5 bold">{{ Auth::user()->name }}</span>
+          <center>
+            <small class="block">Welcome, </small>
+            <span class="h5 bold">{{ Auth::user()->name }}</span>
+          </center>
         </div>
       </section>
       <div class="widget bg-white">
-        <div class="widget-icon bg-danger pull-left fa fa-tint">
+        <div class="widget-icon bg-warning pull-left fa fa-file">
         </div>
         <div class="overflow-hidden">
-          <span class="widget-title percent">86</span>
-          <span class="widget-subtitle">Revenue increase</span>
+          <span class="widget-title">{{ $dokumen }}</span>
+          <span class="widget-subtitle">Jumlah Dokumen Pendukung</span>
         </div>
       </div>
       <div class="widget bg-white">
-        <div class="widget-icon bg-success pull-left fa fa-paper-plane">
+        <div class="widget-icon bg-purple pull-left fa fa-list-alt">
         </div>
         <div class="overflow-hidden">
-          <span class="widget-title">7,355K</span>
-          <span class="widget-subtitle">Pending orders</span>
+          <span class="widget-title">{{ $aturan }}</span>
+          <span class="widget-subtitle">Jumlah Aturan</span>
         </div>
       </div>
     </div>
@@ -80,27 +77,27 @@
   <div class="col-md-4">
     <div>
       <div class="widget bg-white">
-        <div class="widget-icon bg-blue pull-left fa fa-microphone">
+        <div class="widget-icon bg-success pull-left fa fa-tags">
         </div>
         <div class="overflow-hidden">
-          <span class="widget-title">8,372K</span>
-          <span class="widget-subtitle">Registered users</span>
+          <span class="widget-title">{{ $tag }}</span>
+          <span class="widget-subtitle">Jumlah <i>Tags</i></span>
         </div>
       </div>
       <div class="widget bg-white">
-        <div class="widget-icon bg-danger pull-left fa fa-tint">
+        <div class="widget-icon bg-blue pull-left fa fa-bank">
         </div>
         <div class="overflow-hidden">
-          <span class="widget-title percent">86</span>
-          <span class="widget-subtitle">Revenue increase</span>
+          <span class="widget-title">{{ $mitra }}</span>
+          <span class="widget-subtitle">Jumlah Mitra</span>
         </div>
       </div>
       <div class="widget bg-white">
-        <div class="widget-icon bg-success pull-left fa fa-paper-plane">
+        <div class="widget-icon bg-danger pull-left fa fa-comment">
         </div>
         <div class="overflow-hidden">
-          <span class="widget-title">7,355K</span>
-          <span class="widget-subtitle">Pending orders</span>
+          <span class="widget-title">{{ $pesan }}</span>
+          <span class="widget-subtitle">Jumlah Pesan Masuk</span>
         </div>
       </div>
     </div>

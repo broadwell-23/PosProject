@@ -97,7 +97,7 @@
             <td>{{ $data->nama_barang }}</td>
             <td>
               @foreach($packings as $packing)
-                <span class="label label-default">{{ $packing->nama_packing }}</span><br>
+                <span class="label label-danger">{{ $packing->nama_packing }}</span><br>
               @endforeach
             </td>
             <td>
