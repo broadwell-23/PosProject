@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Barang;
+use App\Mitra;
 use App\Pesan;
 
 class WebController extends Controller
@@ -11,7 +12,8 @@ class WebController extends Controller
     public function index()
     {
         $datas = Barang::all();
-        return view('web', compact('datas'));
+        $mitras = Mitra::all();
+        return view('web', compact('datas', 'mitras'));
     }
 
     public function store(Request $request)

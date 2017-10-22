@@ -129,6 +129,39 @@
                     </tbody>
                   </table>
                 </div>
+            </div>
+            <div class="section section-buttons" id="tabel_mitra">
+                <div class="container">
+                    <div class="tim-title text-center">
+                        <nav class="navbar bg-danger">
+                            <div class="container">
+                                <span class="navbar-brand text-center">Tabel Informasi Mitra</span>
+                            </div>
+                        </nav>
+                    </div>
+                  <table id="table2" class="table table-striped datatable responsive align-middle bordered">
+                    <thead>
+                      <tr>
+                        <th>No</th>
+                        <th>Nama Mitra</th>
+                        <th>Alamat</th>
+                        <th>Telpon</th>
+                        <th>Fax</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      @foreach($mitras as $no => $data)
+                      <tr>
+                        <td>{{ $no+1 }}</td>
+                        <td>{{ $data->nama_mitra }}</td>
+                        <td>{{ $data->alamat }}</td>
+                        <td>{{ $data->telp }}</td>
+                        <td>{{ $data->fax }}</td>
+                      </tr>
+                      @endforeach
+                    </tbody>
+                  </table>
+                </div>
             </div>    
             <div class="section section-image section-login" style="background-image: url('assets/img/indonesia.png');" id="kotak_pesan">
                 <div class="container">
@@ -239,8 +272,27 @@
             emptyTable:     "Tabel kosong",
             lengthMenu:     "Tampilkan _MENU_ data",
             emptyTable:     "Tidak ada data pada tabel",
-            info:           "Menampilkan _START_ sampai _END_ data dari total data = _TOTAL_",
-            infoEmpty:      "Menampilkan 0 sampai 0 data dari total data = 0",
+            info:           "Menampilkan _START_ sampai _END_ data dari total data _TOTAL_",
+            infoEmpty:      "Menampilkan 0 sampai 0 data dari total data 0",
+            paginate: {
+                "first":      "Pertama",
+                "last":       "Terakhir",
+                "next":       "Selanjutnya",
+                "previous":   "Sebelumnya"
+            },
+            }
+        });
+    } );
+    $(document).ready( function () {
+        $('#table2').DataTable( {
+            language: {
+            processing:     "Sedang memproses...",
+            search:         "Pencarian&nbsp;:",
+            emptyTable:     "Tabel kosong",
+            lengthMenu:     "Tampilkan _MENU_ data",
+            emptyTable:     "Tidak ada data pada tabel",
+            info:           "Menampilkan _START_ sampai _END_ data dari total data _TOTAL_",
+            infoEmpty:      "Menampilkan 0 sampai 0 data dari total data 0",
             paginate: {
                 "first":      "Pertama",
                 "last":       "Terakhir",
