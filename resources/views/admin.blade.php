@@ -59,7 +59,7 @@
       </button>
     </div>
     <div class="panel-body">
-      <table class="table table-striped responsive">
+      <table class="table table-striped datatable editable-datatable responsive align-middle bordered">
         <thead>
           <tr>
             <th>No</th>
@@ -105,26 +105,31 @@
         <form method="POST" class="form-horizontal" role="form">
           {{csrf_field()}}
           <div class="form-group">
-            <label class="col-sm-2 control-label">Nama</label>
+            <label class="col-sm-2 control-label">Nama<small><sup><i class="fa fa-star" style="color: red"></i></sup></small></label>
             <div class="col-sm-9">
               <input name="name" type="text" class="form-control" required>
             </div>
           </div>
           <div class="form-group">
-            <label class="col-sm-2 control-label">Email</label>
+            <label class="col-sm-2 control-label">Email<small><sup><i class="fa fa-star" style="color: red"></i></sup></small></label>
             <div class="col-sm-9">
               <input name="email" type="email" class="form-control" required>
             </div>
           </div>
           <div class="form-group">
-            <label class="col-sm-2 control-label">Password</label>
+            <label class="col-sm-2 control-label">Password<small><sup><i class="fa fa-star" style="color: red"></i></sup></small></label>
             <div class="col-sm-9">
               <input name="password" type="password" class="form-control" required>
             </div>
           </div>
         </div>
         <div class="modal-footer bordered">
-          <button type="submit" class="btn btn-success btn-outline btn-round">Simpan</button>
+          <div class="col-sm-3">
+            <small><p><sup><i class="fa fa-star" style="color: red"></i></sup>tidak boleh kosong</p></small>
+          </div>
+          <div class="col-sm-9">
+            <button type="submit" class="btn btn-success btn-outline btn-round">Simpan</button>
+          </div>
         </div>
       </form>
     </div>
@@ -149,13 +154,13 @@
           {{ method_field('PUT') }} 
           {{ csrf_field() }}                                    
           <div class="form-group">
-            <label class="col-sm-2 control-label">Nama</label>
+            <label class="col-sm-2 control-label">Nama<small><sup><i class="fa fa-star" style="color: red"></i></sup></small></label>
             <div class="col-sm-9">
               <input name="name" type="text" class="form-control" value="{{ $data->name }}" required>
             </div>
           </div>
           <div class="form-group">
-            <label class="col-sm-2 control-label">Email</label>
+            <label class="col-sm-2 control-label">Email<small><sup><i class="fa fa-star" style="color: red"></i></sup></small></label>
             <div class="col-sm-9">
               <input name="email" type="email" class="form-control" value="{{ $data->email }}" required>
             </div>
@@ -168,7 +173,12 @@
           </div>
         </div>
         <div class="modal-footer bordered">
-          <button type="submit" class="btn btn-info btn-outline btn-round">Simpan</button>
+          <div class="col-sm-3">
+            <small><p><sup><i class="fa fa-star" style="color: red"></i></sup>tidak boleh kosong</p></small>
+          </div>
+          <div class="col-sm-9">
+            <button type="submit" class="btn btn-info btn-outline btn-round">Simpan</button>
+          </div>
         </div>
       </form>
     </div>
@@ -213,6 +223,6 @@
 
 <!-- initialize page scripts -->
 <script src="scripts/extentions/bootstrap-datatables.js"></script>
-<script src="scripts/pages/datatables.js"></script>
+<script src="scripts/pages/table-edit.js"></script>
 <!-- /initialize page scripts -->
 @endpush

@@ -105,13 +105,13 @@
         <form method="POST" class="form-horizontal" role="form">
           {{ csrf_field() }}
           <div class="form-group">
-            <label class="col-sm-2 control-label">Nama Mitra</label>
+            <label class="col-sm-2 control-label">Nama Mitra<small><sup><i class="fa fa-star" style="color: red"></i></sup></small></label>
             <div class="col-sm-9">
               <input name="nama_mitra" type="text" class="form-control" required>
             </div>
           </div>
           <div class="form-group">
-            <label class="col-sm-2 control-label">Alamat</label>
+            <label class="col-sm-2 control-label">Alamat<small><sup><i class="fa fa-star" style="color: red"></i></sup></small></label>
             <div class="col-sm-9">
               <input name="alamat" type="text" class="form-control" required>
             </div>
@@ -130,7 +130,12 @@
           </div>
         </div>
         <div class="modal-footer bordered">
-          <button type="submit" class="btn btn-success btn-outline btn-round">Simpan</button>
+          <div class="col-sm-3">
+            <small><p><sup><i class="fa fa-star" style="color: red"></i></sup>tidak boleh kosong</p></small>
+          </div>
+          <div class="col-sm-9">
+            <button type="submit" class="btn btn-success btn-outline btn-round">Simpan</button>
+          </div>
         </div>
       </form>
     </div>
@@ -155,13 +160,13 @@
           {{ method_field('PUT') }} 
           {{ csrf_field() }}                                    
           <div class="form-group">
-            <label class="col-sm-2 control-label">Nama Mitra</label>
+            <label class="col-sm-2 control-label">Nama Mitra<small><sup><i class="fa fa-star" style="color: red"></i></sup></small></label>
             <div class="col-sm-9">
               <input name="nama_mitra" type="text" class="form-control" value="{{ $data->nama_mitra }}" required>
             </div>
           </div>
           <div class="form-group">
-            <label class="col-sm-2 control-label">Alamat</label>
+            <label class="col-sm-2 control-label">Alamat<small><sup><i class="fa fa-star" style="color: red"></i></sup></small></label>
             <div class="col-sm-9">
               <input name="alamat" type="text" class="form-control" value="{{ $data->alamat }}" required>
             </div>
@@ -180,7 +185,12 @@
           </div>
         </div>
         <div class="modal-footer bordered">
-          <button type="submit" class="btn btn-info btn-outline btn-round">Simpan</button>
+          <div class="col-sm-3">
+            <small><p><sup><i class="fa fa-star" style="color: red"></i></sup>tidak boleh kosong</p></small>
+          </div>
+          <div class="col-sm-9">
+            <button type="submit" class="btn btn-info btn-outline btn-round">Simpan</button>
+          </div>
         </div>
       </form>
     </div>

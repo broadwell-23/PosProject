@@ -65,7 +65,7 @@
       </button>
     </div>
     <div class="panel-body">
-      <table class="table table-striped responsive">
+      <table class="table table-striped datatable editable-datatable responsive align-middle bordered">
         <thead>
           <tr>
             <th>No</th>
@@ -227,6 +227,6 @@
 
 <!-- initialize page scripts -->
 <script src="scripts/extentions/bootstrap-datatables.js"></script>
-<script src="scripts/pages/datatables.js"></script>
+<script src="scripts/pages/table-edit.js"></script>
 <!-- /initialize page scripts -->
 @endpush

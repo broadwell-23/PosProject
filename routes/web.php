@@ -13,6 +13,7 @@
 
 Route::resource('/', 'WebController');
 
+
 Auth::routes();
 
 Route::get('/logout', function(){

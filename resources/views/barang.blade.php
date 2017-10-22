@@ -8,6 +8,7 @@
 
 @push('stylesheets')
 <!-- page level plugin styles -->
+<link rel="stylesheet" href="vendor/datatables/media/css/jquery.dataTables.css">
 <link rel="stylesheet" href="vendor/chosen_v1.4.0/chosen.min.css">
 <link rel="stylesheet" href="vendor/jquery.tagsinput/jquery.tagsinput.css">
 <link rel="stylesheet" href="vendor/checkbo/src/0.1.4/css/checkBo.min.css">
@@ -76,7 +77,7 @@
       </a>
     </div>
     <div class="panel-body">
-      <table class="table table-striped responsive">
+      <table class="table table-striped datatable editable-datatable responsive align-middle bordered">
         <thead>
           <tr>
             <th>No</th>
@@ -96,27 +97,27 @@
             <td>{{ $no+1 }}</td>
             <td>{{ $data->nama_barang }}</td>
             <td>
-              @foreach($packings as $packing)
+              @foreach($data->packings()->get() as $packing)
                 <span class="label label-danger">{{ $packing->nama_packing }}</span><br>
               @endforeach
             </td>
             <td>
-              @foreach($dokumens as $dokumen)
+              @foreach($data->dokumens()->get() as $dokumen)
                 <span class="label label-default">{{ $dokumen->nama_dokumen }}</span><br>
               @endforeach
             </td>
             <td>
-              @foreach($dokumens as $dokumen)
+              @foreach($data->dokumens()->get() as $dokumen)
                 <span class="label label-default">{{ $dokumen->pengeluar_dokumen }}</span><br>
               @endforeach
             </td>
             <td>
-              @foreach($aturans as $aturan)
+              @foreach($data->aturans()->get() as $aturan)
                 {{ $aturan->isi_aturan }}<br>
               @endforeach
             </td>
             <td>
-              @foreach($tags as $tag)
+              @foreach($data->tags()->get() as $tag)
                 <span class="label label-primary">{{ $tag->nama_tag }}</span><br>
               @endforeach
             </td>
@@ -176,34 +177,25 @@
 
 <!-- initialize page scripts -->
 <script src="scripts/extentions/bootstrap-datatables.js"></script>
+<script src="scripts/pages/table-edit.js"></script>
 <!-- /initialize page scripts -->
 
 <!-- page level scripts -->
-  <script src="vendor/chosen_v1.4.0/chosen.jquery.min.js"></script>
-  <script src="vendor/jquery.tagsinput/jquery.tagsinput.min.js"></script>
-  <script src="vendor/checkbo/src/0.1.4/js/checkBo.min.js"></script>
-  <script src="vendor/intl-tel-input//build/js/intlTelInput.min.js"></script>
-  <script src="vendor/dropzone/dist/min/dropzone.min.js"></script>
-  <script src="vendor/moment/min/moment.min.js"></script>
-  <script src="vendor/bootstrap-daterangepicker/daterangepicker.js"></script>
-  <script src="vendor/bootstrap-datepicker/js/bootstrap-datepicker.js"></script>
-  <script src="vendor/bootstrap-timepicker/js/bootstrap-timepicker.min.js"></script>
-  <script src="vendor/clockpicker/dist/jquery-clockpicker.min.js"></script>
-  <script src="vendor/mjolnic-bootstrap-colorpicker/dist/js/bootstrap-colorpicker.min.js"></script>
-  <script src="vendor/bootstrap-touchspin/dist/jquery.bootstrap-touchspin.min.js"></script>
+<script src="vendor/chosen_v1.4.0/chosen.jquery.min.js"></script>
+<script src="vendor/jquery.tagsinput/jquery.tagsinput.min.js"></script>
+<script src="vendor/checkbo/src/0.1.4/js/checkBo.min.js"></script>
+<script src="vendor/intl-tel-input//build/js/intlTelInput.min.js"></script>
+<script src="vendor/dropzone/dist/min/dropzone.min.js"></script>
+<script src="vendor/moment/min/moment.min.js"></script>
+<script src="vendor/bootstrap-daterangepicker/daterangepicker.js"></script>
+<script src="vendor/bootstrap-datepicker/js/bootstrap-datepicker.js"></script>
+<script src="vendor/bootstrap-timepicker/js/bootstrap-timepicker.min.js"></script>
+<script src="vendor/clockpicker/dist/jquery-clockpicker.min.js"></script>
+<script src="vendor/mjolnic-bootstrap-colorpicker/dist/js/bootstrap-colorpicker.min.js"></script>
+<script src="vendor/bootstrap-touchspin/dist/jquery.bootstrap-touchspin.min.js"></script>
   <!-- /page level scripts -->
 
-  <!-- initialize page scripts -->
-  <script src="scripts/pages/form-custom.js"></script>
-  <script type="text/javascript">
-    function myFunction() {
-      var x = document.getElementById("tambahData");
-      if (x.style.display === "block") {
-          x.style.display = "none";
-      } else {
-          x.style.display = "block";
-      }
-    }
-  </script>
-  <!-- /initialize page scripts -->
+<!-- initialize page scripts -->
+<script src="scripts/pages/form-custom.js"></script>
+<!-- /initialize page scripts -->
 @endpush
