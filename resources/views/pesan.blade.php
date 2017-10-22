@@ -64,9 +64,9 @@
             <td>{{ $data->created_at }}</td>
             <td>
               @if($data->status==1)
-                <span class="label label-danger">Belum Ditanggapi</span>
+                <span class="label label-success">Belum Ditanggapi</span>
               @else
-                <span class="label label-success">Sudah Ditanggapi</span>
+                <span class="label label-default">Sudah Ditanggapi</span>
               @endif
             </td>
             <td class="text-center">

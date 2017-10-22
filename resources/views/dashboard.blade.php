@@ -48,7 +48,7 @@
   </div>
   <div class="col-md-4">
     <div>
-      <section class="widget bg-lightblue">
+      <section class="widget bg-orange">
         <div class="widget-details">
           <center>
             <small class="block">Welcome, </small>

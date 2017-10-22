@@ -69,12 +69,10 @@ class BarangController extends Controller
 	    $data->nama_barang = $request->nama_barang;
 	    $data->keterangan = $request->keterangan;
 	    $data->save();
-
-        $barang = Barang::find($data->id);
-        $barang->packings()->attach($request->packing_id);
-        $barang->dokumens()->attach($request->dokumen_id);
-        $barang->aturans()->attach($request->aturan_id);
-        $barang->tags()->attach($request->tag_id);
+        $data->packings()->attach($request->packing_id);
+        $data->dokumens()->attach($request->dokumen_id);
+        $data->aturans()->attach($request->aturan_id);
+        $data->tags()->attach($request->tag_id);
 
 	    session(['message' => 'bTambah']);
 	    return redirect()->action('BarangController@index');

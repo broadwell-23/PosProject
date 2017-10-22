@@ -34,8 +34,8 @@
                     <span class="navbar-toggler-bar"></span>
                     <span class="navbar-toggler-bar"></span>
                 </button>
-                <a class="navbar-brand" href="/">
-                    <img style="width: 75px" src="/images/pos_indonesia.png">
+                <a class="navbar-brand" href="#top">
+                    <img style="width: 30px" src="/images/pos_indonesia.png"> Sistem Informasi Barang
                 </a>
             </div>
             <div class="collapse navbar-collapse" id="navbarToggler">
@@ -55,7 +55,7 @@
         </div>
     </nav>
     <div class="wrapper">
-        <div class="page-header section-dark" style="background-image: url('assets/img/packingservice.jpg')">
+        <div class="page-header section-dark" style="background-image: url('assets/img/packingservice.jpg')" id="top">
             <div class="filter"></div>
     		<div class="content-center">
     			<div class="container">

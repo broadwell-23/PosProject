@@ -38,12 +38,12 @@
               <form method="POST" role="form" action="{{ route('login') }}" class="form-layout">
                 {{ csrf_field() }}
                 <div class="text-center mb15">
-                  <img src="images/logo-dark.png" />
+                  <img style="width: 230px" src="/images/pos_indonesia.png" />
                 </div>
-                <p class="text-center mb30">Sistem Informasi Barang . Pos Indonesia</p>
+                <h5 class="text-center mb30"><strong>SISTEM INFORMASI BARANG</strong></h5>
                 <div class="form-inputs">
-                  <input name="email" type="email" class="form-control input-lg" placeholder="Email Address">
-                  <input name="password" type="password" class="form-control input-lg" placeholder="Password">
+                  <input name="email" type="email" class="form-control input-lg" placeholder="Email Address" required>
+                  <input name="password" type="password" class="form-control input-lg" placeholder="Password" required>
                 </div>
                 <button class="btn btn-success btn-block btn-lg mb15" type="submit">
                   <span>Log in</span>

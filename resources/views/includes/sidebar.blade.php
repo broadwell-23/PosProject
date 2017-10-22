@@ -100,7 +100,7 @@
         <a href="/pesan">
           <i class="fa fa-comment"></i>
           <span>Pesan Masuk</span>
-          <span class="label label-danger pull-right">
+          <span class="label label-success pull-right">
             {{ App\Pesan::where('status', 1)->count() }}
           </span>
         </a>
