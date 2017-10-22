@@ -329,7 +329,7 @@ input[type="file"] > input[type="button"]::-moz-focus-inner {
 }
 
 .bg-danger {
-  background-color: #f7765f !important;
+  background-color: #f5593d !important;
 }
 
 .navbar-transparent {
@@ -1365,7 +1365,7 @@ textarea.form-control {
 }
 
 .alert-danger {
-  background-color: #f7765f;
+  background-color: #f5593d;
 }
 
 /*           Labels & Progress-bar              */
@@ -1585,7 +1585,7 @@ textarea.form-control {
 }
 
 .popover.bottom .arrow:after {
-  border-bottom-color: #f7765f;
+  border-bottom-color: #f5593d;
 }
 
 .popover-filter {
@@ -1610,20 +1610,20 @@ textarea.form-control {
 }
 
 .popover.left > .arrow::after {
-  border-left-color: #f7765f;
+  border-left-color: #f5593d;
   bottom: -20px;
 }
 
 .popover.top > .arrow::after {
-  border-top-color: #f7765f;
+  border-top-color: #f5593d;
 }
 
 .popover.right > .arrow::after {
-  border-right-color: #f7765f;
+  border-right-color: #f5593d;
 }
 
 .popover.left::before {
-  border-left-color: #f7765f;
+  border-left-color: #f5593d;
   bottom: -20px;
 }
 
@@ -1719,24 +1719,24 @@ textarea.form-control {
 }
 
 .popover-danger {
-  background-color: #f7765f;
+  background-color: #f5593d;
   color: #FFFFFF;
 }
 .popover-danger .popover-title {
-  background-color: #f7765f;
+  background-color: #f5593d;
   color: rgba(0, 0, 0, 0.56);
 }
 .popover-danger.bottom .arrow:after {
-  border-bottom-color: #f7765f;
+  border-bottom-color: #f5593d;
 }
 .popover-danger.left > .arrow::after {
-  border-left-color: #f7765f;
+  border-left-color: #f5593d;
 }
 .popover-danger.top > .arrow::after {
-  border-top-color: #f7765f;
+  border-top-color: #f5593d;
 }
 .popover-danger.right > .arrow::after {
-  border-right-color: #f7765f;
+  border-right-color: #f5593d;
 }
 
 .popover-primary.bs-tether-element-attached-bottom::after,
@@ -1771,7 +1771,7 @@ textarea.form-control {
 .popover.popover-danger.bs-tether-element-attached-right::before,
 .popover.popover-danger.popover-left::after,
 .popover.popover-danger.popover-left::before {
-  border-left-color: #f7765f !important;
+  border-left-color: #f5593d !important;
 }
 
 .popover.bs-tether-element-attached-top::after, .popover.popover-bottom::after,
@@ -3266,7 +3266,7 @@ textarea.form-control {
   background-color: #fcd27b;
 }
 .dropdown-menu.dropdown-danger .dropdown-item:hover, .dropdown-menu.dropdown-danger .dropdown-item:focus {
-  background-color: #f7765f;
+  background-color: #f5593d;
 }
 
 .dropdown-divider {

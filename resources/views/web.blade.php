@@ -34,7 +34,9 @@
                     <span class="navbar-toggler-bar"></span>
                     <span class="navbar-toggler-bar"></span>
                 </button>
-                <a class="navbar-brand" href="/">Pos Indonesia</a>
+                <a class="navbar-brand" href="/">
+                    <img style="width: 75px" src="/images/pos_indonesia.png">
+                </a>
             </div>
             <div class="collapse navbar-collapse" id="navbarToggler">
                 <ul class="navbar-nav ml-auto">
@@ -53,15 +55,15 @@
         </div>
     </nav>
     <div class="wrapper">
-        <div class="page-header section-dark" style="background-image: url('assets/img/antoine-barres.jpg')">
+        <div class="page-header section-dark" style="background-image: url('assets/img/packingservice.jpg')">
             <div class="filter"></div>
     		<div class="content-center">
     			<div class="container">
     				<div class="title-brand">
-    					<h1 class="presentation-title">Pos Indonesia</h1>
+    					<img style="width: 340px" src="/images/pos_indonesia.png">
     				</div>
 
-    				<h2 class="presentation-subtitle text-center">Sistem Informasi Barang</h2>
+    				<h2 class="presentation-subtitle text-center">SISTEM INFORMASI BARANG</h2>
     			</div>
     		</div>
             <div class="moving-clouds" style="background-image: url('assets/img/clouds.png'); ">
@@ -72,7 +74,11 @@
             <div class="section section-buttons" id="tabel_barang">
                 <div class="container">
                     <div class="tim-title text-center">
-                        <h3>Tabel Informasi Barang</h3>
+                        <nav class="navbar bg-danger">
+                            <div class="container">
+                                <span class="navbar-brand text-center">Tabel Informasi Barang</span>
+                            </div>
+                        </nav>
                     </div>
                   <table id="table1" class="table table-striped datatable responsive align-middle bordered">
                     <thead>
@@ -114,7 +120,7 @@
                         </td>
                         <td>
                           @foreach($data->tags()->get() as $tag)
-                            <span class="label label-primary">{{ $tag->nama_tag }}</span><br>
+                            <span class="label label-danger">{{ $tag->nama_tag }}</span><br>
                           @endforeach
                         </td>
                         <td>{{ $data->keterangan }}</td>
@@ -124,7 +130,7 @@
                   </table>
                 </div>
             </div>    
-            <div class="section section-image section-login" style="background-image: url('assets/img/login-image.jpg');" id="kotak_pesan">
+            <div class="section section-image section-login" style="background-image: url('assets/img/indonesia.png');" id="kotak_pesan">
                 <div class="container">
                     <div class="row">
                         <div class="col-md-8 offset-md-2">
@@ -226,7 +232,23 @@
 <script type="text/javascript" charset="utf8" src="/DataTables/datatables.js"></script>
 <script type="text/javascript">
     $(document).ready( function () {
-        $('#table1').DataTable();
+        $('#table1').DataTable( {
+            language: {
+            processing:     "Sedang memproses...",
+            search:         "Pencarian&nbsp;:",
+            emptyTable:     "Tabel kosong",
+            lengthMenu:     "Tampilkan _MENU_ data",
+            emptyTable:     "Tidak ada data pada tabel",
+            info:           "Menampilkan _START_ sampai _END_ data dari total data = _TOTAL_",
+            infoEmpty:      "Menampilkan 0 sampai 0 data dari total data = 0",
+            paginate: {
+                "first":      "Pertama",
+                "last":       "Terakhir",
+                "next":       "Selanjutnya",
+                "previous":   "Sebelumnya"
+            },
+            }
+        });
     } );
 </script>
 
