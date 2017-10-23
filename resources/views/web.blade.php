@@ -189,8 +189,8 @@
                             @endif
                             <div class="card contact-form">
                                 <h3 class="tim-title text-center">Kotak Pesan</h3>
-                                <p class="text-center">Silahkan masukkan saran jika ada kesalahan dan/atau kekurangan data pada tabel.</p>
-                                <p class="text-center">Saran akan disampaikan langsung ke admin aplikasi ini.</p>
+                                <p class="text-center">Silahkan masukkan pesan jika ada kesalahan dan/atau kekurangan data pada tabel.</p>
+                                <p class="text-center">Pesan akan disampaikan langsung ke admin aplikasi ini.</p>
                                 <form method="POST" class="contact-form" role="form">
                                     {{ csrf_field() }}
                                     <div class="row">
