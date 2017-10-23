@@ -15,7 +15,7 @@
     <ul class="nav">
       <li>
         <a href="javascript:;">
-          <img style="width: 30px" src="{{ asset("/images/pos_indonesia.png") }}"><strong> SISTEM INFORMASI BARANG </strong><i class="fa fa-copyright"></i> 2017 <span>Broadwell-</span> 
+          <img style="width: 30px" src="{{ asset('images/pos_indonesia.png') }}"><strong> SISTEM INFORMASI BARANG </strong><i class="fa fa-copyright"></i> 2017 <span>Broadwell-</span> 
         </a>
       </li>
     </ul>

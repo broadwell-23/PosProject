@@ -8,18 +8,18 @@
 
 @push('stylesheets')
 <!-- page level plugin styles -->
-<link rel="stylesheet" href="{{ asset("vendor/chosen_v1.4.0/chosen.min.css") }}">
-<link rel="stylesheet" href="{{ asset("vendor/jquery.tagsinput/jquery.tagsinput.css") }}">
-<link rel="stylesheet" href="{{ asset("vendor/checkbo/src/0.1.4/css/checkBo.min.css") }}">
-<link rel="stylesheet" href="{{ asset("vendor/intl-tel-input/build/css/intlTelInput.css") }}">
-<link rel="stylesheet" href="{{ asset("vendor/dropzone/dist/min/basic.min.css") }}">
-<link rel="stylesheet" href="{{ asset("vendor/dropzone/dist/min/dropzone.min.css") }}">
-<link rel="stylesheet" href="{{ asset("vendor/bootstrap-daterangepicker/daterangepicker-bs3.css") }}">
-<link rel="stylesheet" href="{{ asset("vendor/bootstrap-datepicker/dist/css/bootstrap-datepicker3.css") }}">
-<link rel="stylesheet" href="{{ asset("vendor/bootstrap-timepicker/css/bootstrap-timepicker.min.css") }}">
-<link rel="stylesheet" href="{{ asset("vendor/clockpicker/dist/bootstrap-clockpicker.min.css") }}">
-<link rel="stylesheet" href="{{ asset("vendor/mjolnic-bootstrap-colorpicker/dist/css/bootstrap-colorpicker.min.css") }}">
-<link rel="stylesheet" href="{{ asset("vendor/bootstrap-touchspin/dist/jquery.bootstrap-touchspin.min.css") }}">
+<link rel="stylesheet" href="{{ asset('vendor/chosen_v1.4.0/chosen.min.css') }}">
+<link rel="stylesheet" href="{{ asset('vendor/jquery.tagsinput/jquery.tagsinput.css') }}">
+<link rel="stylesheet" href="{{ asset('vendor/checkbo/src/0.1.4/css/checkBo.min.css') }}">
+<link rel="stylesheet" href="{{ asset('vendor/intl-tel-input/build/css/intlTelInput.css') }}">
+<link rel="stylesheet" href="{{ asset('vendor/dropzone/dist/min/basic.min.css') }}">
+<link rel="stylesheet" href="{{ asset('vendor/dropzone/dist/min/dropzone.min.css') }}">
+<link rel="stylesheet" href="{{ asset('vendor/bootstrap-daterangepicker/daterangepicker-bs3.css') }}">
+<link rel="stylesheet" href="{{ asset('vendor/bootstrap-datepicker/dist/css/bootstrap-datepicker3.cs') }}">
+<link rel="stylesheet" href="{{ asset('vendor/bootstrap-timepicker/css/bootstrap-timepicker.min.css') }}">
+<link rel="stylesheet" href="{{ asset('vendor/clockpicker/dist/bootstrap-clockpicker.min.css') }}">
+<link rel="stylesheet" href="{{ asset('vendor/mjolnic-bootstrap-colorpicker/dist/css/bootstrap-colorpicker.min.css') }}">
+<link rel="stylesheet" href="{{ asset('vendor/bootstrap-touchspin/dist/jquery.bootstrap-touchspin.min.css') }}">
 <!-- /page level plugin styles -->
 @endpush
 
@@ -176,21 +176,21 @@
 
 @push('scripts')
 <!-- page level scripts -->
-<script src="{{ asset("vendor/chosen_v1.4.0/chosen.jquery.min.js") }}"></script>
-<script src="{{ asset("vendor/jquery.tagsinput/jquery.tagsinput.min.js") }}"></script>
-<script src="{{ asset("vendor/checkbo/src/0.1.4/js/checkBo.min.js") }}"></script>
-<script src="{{ asset("vendor/intl-tel-input//build/js/intlTelInput.min.js") }}"></script>
-<script src="{{ asset("vendor/dropzone/dist/min/dropzone.min.js") }}"></script>
-<script src="{{ asset("vendor/moment/min/moment.min.js") }}"></script>
-<script src="{{ asset("vendor/bootstrap-daterangepicker/daterangepicker.js") }}"></script>
-<script src="{{ asset("vendor/bootstrap-datepicker/js/bootstrap-datepicker.js") }}"></script>
-<script src="{{ asset("vendor/bootstrap-timepicker/js/bootstrap-timepicker.min.js") }}"></script>
-<script src="{{ asset("vendor/clockpicker/dist/jquery-clockpicker.min.js") }}"></script>
-<script src="{{ asset("vendor/mjolnic-bootstrap-colorpicker/dist/js/bootstrap-colorpicker.min.js") }}"></script>
-<script src="{{ asset("vendor/bootstrap-touchspin/dist/jquery.bootstrap-touchspin.min.js") }}"></script>
+<script src="{{ asset('vendor/chosen_v1.4.0/chosen.jquery.min.js') }}"></script>
+<script src="{{ asset('vendor/jquery.tagsinput/jquery.tagsinput.min.js') }}"></script>
+<script src="{{ asset('vendor/checkbo/src/0.1.4/js/checkBo.min.js') }}"></script>
+<script src="{{ asset('vendor/intl-tel-input//build/js/intlTelInput.min.js') }}"></script>
+<script src="{{ asset('vendor/dropzone/dist/min/dropzone.min.js') }}"></script>
+<script src="{{ asset('vendor/moment/min/moment.min.js') }}"></script>
+<script src="{{ asset('vendor/bootstrap-daterangepicker/daterangepicker.js') }}"></script>
+<script src="{{ asset('vendor/bootstrap-datepicker/js/bootstrap-datepicker.js') }}"></script>
+<script src="{{ asset('vendor/bootstrap-timepicker/js/bootstrap-timepicker.min.js') }}"></script>
+<script src="{{ asset('vendor/clockpicker/dist/jquery-clockpicker.min.js') }}"></script>
+<script src="{{ asset('vendor/mjolnic-bootstrap-colorpicker/dist/js/bootstrap-colorpicker.min.js') }}"></script>
+<script src="{{ asset('vendor/bootstrap-touchspin/dist/jquery.bootstrap-touchspin.min.js') }}"></script>
 <!-- /page level scripts -->
 
 <!-- initialize page scripts -->
-<script src="{{ asset("scripts/pages/form-custom.js") }}"></script>
+<script src="{{ asset('scripts/pages/form-custom.js') }}"></script>
 <!-- /initialize page scripts -->
 @endpush

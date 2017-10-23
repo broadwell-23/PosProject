@@ -13,6 +13,7 @@ class WebController extends Controller
     {
         $datas = Barang::all();
         $mitras = Mitra::all();
+
         return view('web', compact('datas', 'mitras'));
     }
 

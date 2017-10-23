@@ -8,7 +8,7 @@
 
 @push('stylesheets')
 <!-- page level plugin styles -->
-<link rel="stylesheet" href="vendor/datatables/media/css/jquery.dataTables.css">
+<link rel="stylesheet" href="{{ asset('vendor/datatables/media/css/jquery.dataTables.css') }}">
 <!-- /page level plugin styles -->
 @endpush
 
@@ -222,11 +222,11 @@
 
 @push('scripts')
 <!-- page level scripts -->
-<script src="vendor/datatables/media/js/jquery.dataTables.js"></script>
+<script src="{{ asset('vendor/datatables/media/js/jquery.dataTables.js') }}"></script>
 <!-- /page level scripts -->
 
 <!-- initialize page scripts -->
-<script src="scripts/extentions/bootstrap-datatables.js"></script>
-<script src="scripts/pages/table-edit.js"></script>
+<script src="{{ asset('scripts/extentions/bootstrap-datatables.js') }}"></script>
+<script src="{{ asset('scripts/pages/table-edit.js') }}"></script>
 <!-- /initialize page scripts -->
 @endpush

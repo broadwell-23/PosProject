@@ -3,8 +3,8 @@
 
 <head>
     <meta charset="utf-8" />
-    <link rel="icon" type="image/png" href="assets/img/favicon.ico">
-    <link rel="apple-touch-icon" sizes="76x76" href="assets/img/apple-icon.png">
+    <link rel="icon" type="image/png" href="{{ asset('assets/img/favicon.ico') }}">
+    <link rel="apple-touch-icon" sizes="76x76" href="{{ asset('assets/img/apple-icon.png') }}">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
 
     <title>Sistem Informasi Barang</title>
@@ -12,16 +12,16 @@
     <meta content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0' name='viewport' />
     <meta name="viewport" content="width=device-width" />
 
-    <link href="assets/css/bootstrap.min.css" rel="stylesheet" />
-    <link href="assets/css/paper-kit.css?v=2.0.1" rel="stylesheet"/>
-    <link href="assets/css/demo.css" rel="stylesheet" />
+    <link href="{{ asset('assets/css/bootstrap.min.css') }}" rel="stylesheet" />
+    <link href="{{ asset('assets/css/paper-kit.css?v=2.0.1') }}" rel="stylesheet"/>
+    <link href="{{ asset('assets/css/demo.css') }}" rel="stylesheet" />
 
     <!--     Fonts and icons     -->
     <!-- <link href='http://fonts.googleapis.com/css?family=Montserrat:400,300,700' rel='stylesheet' type='text/css'>
     <link href="http://maxcdn.bootstrapcdn.com/font-awesome/latest/css/font-awesome.min.css" rel="stylesheet"> -->
-    <link href="assets/css/nucleo-icons.css" rel="stylesheet" />
+    <link href="{{ asset('assets/css/nucleo-icons.css') }}" rel="stylesheet" />
 
-    <link rel="stylesheet" type="text/css" href="/DataTables/datatables.css">
+    <link rel="stylesheet" type="text/css" href="{{ asset('DataTables/datatables.css') }}">
 
 </head>
 
@@ -35,7 +35,7 @@
                     <span class="navbar-toggler-bar"></span>
                 </button>
                 <a class="navbar-brand" href="#top">
-                    <img style="width: 30px" src="/images/pos_indonesia.png"> Sistem Informasi Barang
+                    <img style="width: 30px" src="{{ asset('images/pos_indonesia.png') }}"> Sistem Informasi Barang
                 </a>
             </div>
             <div class="collapse navbar-collapse" id="navbarToggler">
@@ -43,6 +43,11 @@
                     <li class="nav-item">
                         <a class="nav-link" title="Tabel Barang" href="#tabel_barang">
                             Tabel Barang
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" title="Tabel Mitra" href="#tabel_mitra">
+                            Tabel Mitra
                         </a>
                     </li>
                     <li class="nav-item">
@@ -55,18 +60,18 @@
         </div>
     </nav>
     <div class="wrapper">
-        <div class="page-header section-dark" style="background-image: url('assets/img/packingservice.jpg')" id="top">
+        <div class="page-header section-dark" style="background-image: url({{ asset('assets/img/packingservice.jpg') }})" id="top">
             <div class="filter"></div>
     		<div class="content-center">
     			<div class="container">
     				<div class="title-brand">
-    					<img style="width: 340px" src="/images/pos_indonesia.png">
+    					<img style="width: 340px" src="{{ asset('images/pos_indonesia.png') }}">
     				</div>
 
     				<h2 class="presentation-subtitle text-center">SISTEM INFORMASI BARANG</h2>
     			</div>
     		</div>
-            <div class="moving-clouds" style="background-image: url('assets/img/clouds.png'); ">
+            <div class="moving-clouds" style="background-image: url({{ asset('assets/img/clouds.png') }}); ">
 
             </div>
     	</div>
@@ -94,32 +99,32 @@
                       </tr>
                     </thead>
                     <tbody>
-                      @foreach($datas as $no => $data)
+                      @foreach($datas as $data)
                       <tr>
-                        <td>{{ $no+1 }}</td>
+                        <td>{{ $loop->iteration }}</td>
                         <td>{{ $data->nama_barang }}</td>
                         <td>
-                          @foreach($data->packings()->get() as $packing)
+                          @foreach($data->packings as $packing)
                             <span class="label label-danger">{{ $packing->nama_packing }}</span><br>
                           @endforeach
                         </td>
                         <td>
-                          @foreach($data->dokumens()->get() as $dokumen)
+                          @foreach($data->dokumens as $dokumen)
                             <span class="label label-default">{{ $dokumen->nama_dokumen }}</span><br>
                           @endforeach
                         </td>
                         <td>
-                          @foreach($data->dokumens()->get() as $dokumen)
+                          @foreach($data->dokumens as $dokumen)
                             <span class="label label-default">{{ $dokumen->pengeluar_dokumen }}</span><br>
                           @endforeach
                         </td>
                         <td>
-                          @foreach($data->aturans()->get() as $aturan)
+                          @foreach($data->aturans as $aturan)
                             {{ $aturan->isi_aturan }}<br>
                           @endforeach
                         </td>
                         <td>
-                          @foreach($data->tags()->get() as $tag)
+                          @foreach($data->tags as $tag)
                             <span class="label label-danger">{{ $tag->nama_tag }}</span><br>
                           @endforeach
                         </td>
@@ -163,7 +168,7 @@
                   </table>
                 </div>
             </div>    
-            <div class="section section-image section-login" style="background-image: url('assets/img/indonesia.png');" id="kotak_pesan">
+            <div class="section section-image section-login" style="background-image: url({{ asset('assets/img/indonesia.png') }});" id="kotak_pesan">
                 <div class="container">
                     <div class="row">
                         <div class="col-md-8 offset-md-2">
@@ -243,26 +248,26 @@
 </body>
 
 <!-- Core JS Files -->
-<script src="assets/js/jquery-3.2.1.js" type="text/javascript"></script>
-<script src="assets/js/jquery-ui-1.12.1.custom.min.js" type="text/javascript"></script>
-<script src="assets/js/tether.min.js" type="text/javascript"></script>
-<script src="assets/js/bootstrap.min.js" type="text/javascript"></script>
+<script src="{{ asset('assets/js/jquery-3.2.1.js') }}" type="text/javascript"></script>
+<script src="{{ asset('assets/js/jquery-ui-1.12.1.custom.min.js') }}" type="text/javascript"></script>
+<script src="{{ asset('assets/js/tether.min.js') }}" type="text/javascript"></script>
+<script src="{{ asset('assets/js/bootstrap.min.js') }}" type="text/javascript"></script>
 
 <!-- Switches -->
-<script src="assets/js/bootstrap-switch.min.js"></script>
+<script src="{{ asset('assets/js/bootstrap-switch.min.js') }}"></script>
 
 <!--  Plugins for Slider -->
-<script src="assets/js/nouislider.js"></script>
+<script src="{{ asset('assets/js/nouislider.js') }}"></script>
 
 <!--  Plugins for DateTimePicker -->
-<script src="assets/js/moment.min.js"></script>
-<script src="assets/js/bootstrap-datetimepicker.min.js"></script>
+<script src="{{ asset('assets/js/moment.min.js') }}"></script>
+<script src="{{ asset('assets/js/bootstrap-datetimepicker.min.js') }}"></script>
 
 <!--  Paper Kit Initialization and functons -->
-<script src="assets/js/paper-kit.js?v=2.0.1"></script>
+<script src="{{ asset('assets/js/paper-kit.js?v=2.0.1') }}"></script>
 
 <!-- DataTables -->
-<script type="text/javascript" charset="utf8" src="/DataTables/datatables.js"></script>
+<script type="text/javascript" charset="utf8" src="{{ asset('DataTables/datatables.js') }}"></script>
 <script type="text/javascript">
     $(document).ready( function () {
         $('#table1').DataTable( {
