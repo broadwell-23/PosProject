@@ -60,7 +60,7 @@
     <div class="panel-heading border">
       <ol class="breadcrumb mb0 no-padding">
         <li>
-          <a href="dashboard">Admin Panel</a>
+          <a href="{{ route('dashboard') }}">Admin Panel</a>
         </li>
         <li>
           <a href="#">Informasi Barang</a>
@@ -69,7 +69,7 @@
       </ol>
     </div>
     <div class="panel-heading">
-      <a href="/barang/tambah">
+      <a href="{{ route('tambah.barang') }}">
         <button type="button" class="btn btn-success btn-round btn-icon" style="float: right">
           <i class="fa fa-plus"></i>
           <span>Tambah Data</span>
@@ -129,7 +129,7 @@
             </td>
             <td>{{ $data->keterangan }}</td>
             <td class="text-center">
-              <a href="/barang/ubah/{{$data->id}}">
+              <a href="{{ route('ubah.barang', ['id' => $data->id]) }}">
                 <button type="button" class="btn btn-info btn-outline btn-xs" data-toggle="modal">
                   <i class="fa fa-pencil"></i>
                 </button>

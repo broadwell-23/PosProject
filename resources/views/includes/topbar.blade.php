@@ -17,7 +17,7 @@
       </a>
       <ul class="dropdown-menu">
         <li>
-          <a href="/logout">Logout</a>
+          <a href="{{ route('logout') }}">Logout</a>
         </li>
       </ul>
 

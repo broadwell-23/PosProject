@@ -47,7 +47,7 @@
     <div class="panel-heading border">
       <ol class="breadcrumb mb0 no-padding">
         <li>
-          <a href="dashboard">Admin Panel</a>
+          <a href="{{ route('dashboard') }}">Admin Panel</a>
         </li>
         <li class="active">Admin</li>
       </ol>
@@ -119,7 +119,7 @@
           <div class="form-group">
             <label class="col-sm-2 control-label">Password<small><sup><i class="fa fa-star" style="color: red"></i></sup></small></label>
             <div class="col-sm-9">
-              <input name="password" type="password" class="form-control" placeholder="(minimal 8 karakter)" required>
+              <input name="password" type="password" class="form-control" placeholder="(minimal 8 karakter)" required="" minlength="8">
             </div>
           </div>
         </div>

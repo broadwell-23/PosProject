@@ -31,13 +31,13 @@
     <div class="panel-heading border">
       <ol class="breadcrumb mb0 no-padding">
         <li>
-          <a href="/dashboard">Admin Panel</a>
+          <a href="{{ route('dashboard') }}">Admin Panel</a>
         </li>
         <li>
           <a href="#">Informasi Barang</a>
         </li>
         <li>
-          <a href="/barang">Daftar Barang</a>
+          <a href="{{ route('barang') }}">Daftar Barang</a>
         </li>
         <li class="active">Ubah Barang</li>
       </ol>
@@ -71,7 +71,7 @@
                 </select>
               </div>
               <div class="col-sm-1">
-                <a href="/packing" class="btn btn-success btn-icon-icon btn mr5 pull-right">
+                <a href="{{ route('packing') }}" class="btn btn-success btn-icon-icon btn mr5 pull-right">
                   <i class="fa fa-plus"></i>
                 </a>
               </div>
@@ -93,7 +93,7 @@
                 </select>
               </div>
               <div class="col-sm-1">
-                <a href="/dokumen" class="btn btn-success btn-icon-icon btn mr5 pull-right">
+                <a href="{{ route('dokumen') }}" class="btn btn-success btn-icon-icon btn mr5 pull-right">
                   <i class="fa fa-plus"></i>
                 </a>
               </div>
@@ -115,7 +115,7 @@
                 </select>
               </div>
               <div class="col-sm-1">
-                <a href="/aturan" class="btn btn-success btn-icon-icon btn mr5 pull-right">
+                <a href="{{ route('aturan') }}" class="btn btn-success btn-icon-icon btn mr5 pull-right">
                   <i class="fa fa-plus"></i>
                 </a>
               </div>
@@ -137,7 +137,7 @@
                 </select>
               </div>
               <div class="col-sm-1">
-                <a href="/transportasi" class="btn btn-success btn-icon-icon btn mr5 pull-right">
+                <a href="{{ route('transportasi') }}" class="btn btn-success btn-icon-icon btn mr5 pull-right">
                   <i class="fa fa-plus"></i>
                 </a>
               </div>
@@ -159,7 +159,7 @@
                 </select>
               </div>
               <div class="col-sm-1">
-                <a href="/tag" class="btn btn-success btn-icon-icon btn mr5 pull-right">
+                <a href="{{ route('tag') }}" class="btn btn-success btn-icon-icon btn mr5 pull-right">
                   <i class="fa fa-plus"></i>
                 </a>
               </div>

@@ -249,7 +249,7 @@
             <div class="row">
                 <nav class="footer-nav">
                     <ul>
-                        <li><a href="/login" target="_blank">Login Admin</a></li>
+                        <li><a href="{{ route('login') }}" target="_blank">Login Admin</a></li>
                     </ul>
                 </nav>
                 <div class="credits ml-auto">

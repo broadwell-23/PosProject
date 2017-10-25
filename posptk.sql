@@ -1,13 +1,15 @@
 -- phpMyAdmin SQL Dump
--- version 4.5.1
--- http://www.phpmyadmin.net
+-- version 4.7.4
+-- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Oct 23, 2017 at 05:46 AM
--- Server version: 10.1.16-MariaDB
--- PHP Version: 7.0.9
+-- Generation Time: Oct 25, 2017 at 08:22 PM
+-- Server version: 10.1.28-MariaDB
+-- PHP Version: 7.1.10
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
+SET AUTOCOMMIT = 0;
+START TRANSACTION;
 SET time_zone = "+00:00";
 
 
@@ -167,7 +169,9 @@ INSERT INTO `migrations` (`id`, `migration`, `batch`) VALUES
 (24, '2017_10_15_144456_create_dokumens_table', 2),
 (25, '2017_10_15_144507_create_dokumen_barang_table', 2),
 (26, '2017_10_16_082116_create_pesans_table', 2),
-(27, '2017_10_16_082653_create_mitras_table', 2);
+(27, '2017_10_16_082653_create_mitras_table', 2),
+(29, '2017_10_25_200309_create_transportasis_table', 3),
+(30, '2017_10_25_200852_create_transportasi_barang_table', 3);
 
 -- --------------------------------------------------------
 
@@ -275,19 +279,6 @@ CREATE TABLE `pesans` (
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
---
--- Dumping data for table `pesans`
---
-
-INSERT INTO `pesans` (`id`, `nama`, `isi_pesan`, `status`, `created_at`, `updated_at`) VALUES
-(1, 'Iky', 'coba yaaa', 0, '2017-10-17 09:50:39', '2017-10-19 13:33:05'),
-(3, 'Teller 1', 'terdapat kekurangan data pada tabel.', 1, '2017-10-22 07:55:21', '2017-10-22 07:55:21'),
-(4, 'Teller 2', 'terdapat kekurangan data pada tabel.', 1, '2017-10-22 07:56:20', '2017-10-22 07:56:20'),
-(5, 'Teller 3', 'terdapat kekurangan data pada tabel.', 1, '2017-10-22 07:57:48', '2017-10-22 07:57:48'),
-(6, 'Teller 4', 'terdapat kekurangan data pada tabel.', 1, '2017-10-22 08:06:22', '2017-10-22 08:06:22'),
-(7, 'Teller 5', 'terdapat kekurangan data pada tabel.', 1, '2017-10-22 10:11:18', '2017-10-22 10:11:18'),
-(8, 'Teller 6', 'terdapat kekurangan data pada tabel.', 1, '2017-10-22 15:50:57', '2017-10-22 15:50:57');
-
 -- --------------------------------------------------------
 
 --
@@ -360,6 +351,49 @@ INSERT INTO `tag_barang` (`barang_id`, `tag_id`) VALUES
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `transportasis`
+--
+
+CREATE TABLE `transportasis` (
+  `id` int(10) UNSIGNED NOT NULL,
+  `moda_transportasi` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Dumping data for table `transportasis`
+--
+
+INSERT INTO `transportasis` (`id`, `moda_transportasi`, `created_at`, `updated_at`) VALUES
+(1, 'Udara', '2017-10-25 13:30:34', '2017-10-25 13:30:34'),
+(2, 'Darat', '2017-10-25 13:30:40', '2017-10-25 13:30:40'),
+(3, 'Laut', '2017-10-25 13:30:47', '2017-10-25 13:30:47');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `transportasi_barang`
+--
+
+CREATE TABLE `transportasi_barang` (
+  `barang_id` int(11) NOT NULL,
+  `transportasi_id` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Dumping data for table `transportasi_barang`
+--
+
+INSERT INTO `transportasi_barang` (`barang_id`, `transportasi_id`) VALUES
+(18, 2),
+(19, 3),
+(17, 1),
+(17, 2);
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `users`
 --
 
@@ -378,7 +412,8 @@ CREATE TABLE `users` (
 --
 
 INSERT INTO `users` (`id`, `name`, `email`, `password`, `remember_token`, `created_at`, `updated_at`) VALUES
-(1, 'Iky', 'admin@admin.com', '$2y$10$H3TGFuHdiB5iMv7AIOj6teUMPae1E/wA7JU0icse1j8ZHJ2gpAOrG', 'd9WoUFuj73mkzuuZos6xG1fGJJy6u8rWNxnugJNBL6xkiNGK8ADV47LqQ9jV', '2017-10-15 08:12:36', '2017-10-17 09:50:39');
+(1, 'Iky', 'admin@admin.com', '$2y$10$H3TGFuHdiB5iMv7AIOj6teUMPae1E/wA7JU0icse1j8ZHJ2gpAOrG', 'fZS8vRhxc7oRd02bA5icN1F3HhCEjCZKUbL795tyo7kh2IXVkw8blJUrI28e', '2017-10-15 08:12:36', '2017-10-17 09:50:39'),
+(3, 'coba', 'coba1@coba.com', '$2y$10$.d1tRfx86FLHPmD2KtFbnO6Fb8TUgmo1dTHLEEXbztSwxBmxXSgby', NULL, '2017-10-25 16:48:09', '2017-10-25 16:48:09');
 
 --
 -- Indexes for dumped tables
@@ -433,6 +468,12 @@ ALTER TABLE `tags`
   ADD PRIMARY KEY (`id`);
 
 --
+-- Indexes for table `transportasis`
+--
+ALTER TABLE `transportasis`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- Indexes for table `users`
 --
 ALTER TABLE `users`
@@ -447,46 +488,62 @@ ALTER TABLE `users`
 --
 ALTER TABLE `aturans`
   MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+
 --
 -- AUTO_INCREMENT for table `barangs`
 --
 ALTER TABLE `barangs`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=25;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=41;
+
 --
 -- AUTO_INCREMENT for table `dokumens`
 --
 ALTER TABLE `dokumens`
   MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+
 --
 -- AUTO_INCREMENT for table `migrations`
 --
 ALTER TABLE `migrations`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=28;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=31;
+
 --
 -- AUTO_INCREMENT for table `mitras`
 --
 ALTER TABLE `mitras`
   MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+
 --
 -- AUTO_INCREMENT for table `packings`
 --
 ALTER TABLE `packings`
   MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+
 --
 -- AUTO_INCREMENT for table `pesans`
 --
 ALTER TABLE `pesans`
   MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+
 --
 -- AUTO_INCREMENT for table `tags`
 --
 ALTER TABLE `tags`
   MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
+
+--
+-- AUTO_INCREMENT for table `transportasis`
+--
+ALTER TABLE `transportasis`
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+
 --
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+COMMIT;
+
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;

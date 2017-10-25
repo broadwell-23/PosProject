@@ -27,7 +27,7 @@
 
       <!-- dashboard -->
       <li class="{{ Request::is('dashboard') ? 'active' : '' }}">
-        <a href="/dashboard">
+        <a href="{{ route('dashboard') }}">
           <i class="fa fa-bar-chart"></i>
           <span>Dashboard</span>
         </a>
@@ -36,7 +36,7 @@
 
       <!-- admin -->
       <li class="{{ Request::is('administrator') ? 'active' : '' }}">
-        <a href="/administrator">
+        <a href="{{ route('administrator') }}">
           <i class="fa fa-user"></i>
           <span>Admin</span>
         </a>
@@ -51,37 +51,37 @@
         </a>
         <ul class="sub-menu">
           <li class="{{ (Request::is('barang')||Request::is('barang/tambah')) ? 'active' : '' }}">
-            <a href="/barang">
+            <a href="{{ route('barang') }}">
               <span>Daftar Barang</span>
             </a>
           </li>
           <li class="{{ (Request::is('packing')||Request::is('dokumen')||Request::is('aturan')||Request::is('transportasi')||Request::is('tag')) ? 'active open' : '' }}">
-            <a href="/barang">
+            <a href="javascript:;">
               <span>Detail Barang</span>
             </a>
             <ul class="sub-menu">
               <li class="{{ Request::is('packing') ? 'active' : '' }}">
-                <a href="/packing">
+                <a href="{{ route('packing') }}">
                   <span><i>Packing</i></span>
                 </a>
               </li>
               <li class="{{ Request::is('dokumen') ? 'active' : '' }}">
-                <a href="/dokumen">
+                <a href="{{ route('dokumen') }}">
                   <span>Dokumen Pendukung</span>
                 </a>
               </li>
               <li class="{{ Request::is('aturan') ? 'active' : '' }}">
-                <a href="/aturan">
+                <a href="{{ route('aturan') }}">
                   <span>Aturan</span>
                 </a>
               </li>
               <li class="{{ Request::is('transportasi') ? 'active' : '' }}">
-                <a href="/transportasi">
+                <a href="{{ route('transportasi') }}">
                   <span>Moda Transportasi</span>
                 </a>
               </li>
               <li class="{{ Request::is('tag') ? 'active' : '' }}">
-                <a href="/tag">
+                <a href="{{ route('tag') }}">
                   <span><i>Tags</i></span>
                 </a>
               </li>
@@ -93,7 +93,7 @@
 
       <!-- mitra -->
       <li class="{{ Request::is('mitra') ? 'active' : '' }}">
-        <a href="/mitra">
+        <a href="{{ route('mitra') }}">
           <i class="fa fa-institution"></i>
           <span>Mitra</span>
         </a>
@@ -102,7 +102,7 @@
 
       <!-- pesan -->
       <li class="{{ Request::is('pesan') ? 'active' : '' }}">
-        <a href="/pesan">
+        <a href="{{ route('pesan') }}">
           <i class="fa fa-comment"></i>
           <span>Pesan Masuk</span>
           <span class="label label-warning pull-right">

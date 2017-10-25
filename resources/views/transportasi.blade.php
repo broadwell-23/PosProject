@@ -47,7 +47,7 @@
     <div class="panel-heading border">
       <ol class="breadcrumb mb0 no-padding">
         <li>
-          <a href="dashboard">Admin Panel</a>
+          <a href="{{ route('dashboard') }}">Admin Panel</a>
         </li>
         <li>
           <a href="#">Informasi Barang</a>

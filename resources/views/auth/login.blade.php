@@ -37,7 +37,7 @@
             <div class="col-xs-10 col-xs-offset-1 col-sm-6 col-sm-offset-3 col-md-4 col-md-offset-4">
               <form method="POST" role="form" action="{{ route('login') }}" class="form-layout">
                 {{ csrf_field() }}
-                <a href="/">
+                <a href="{{ route('home') }}">
                   <div class="text-center mb15">
                     <img style="width: 230px" src="{{ asset('images/pos_indonesia.png') }}" />
                   </div>
@@ -50,7 +50,7 @@
                 <button class="btn btn-success btn-block btn-lg mb15" type="submit">
                   <span>Log in</span>
                 </button>
-                <a href="/"><i class="fa fa-chevron-left"></i> Beranda</a>
+                <a href="{{ route('home') }}"><i class="fa fa-chevron-left"></i> Beranda</a>
               </form>
             </div>
           </div>
