@@ -50,6 +50,11 @@ Route::post('aturan', 'AturanController@store');
 Route::put('aturan', 'AturanController@update');
 Route::delete('aturan', 'AturanController@destroy');
 
+Route::get('transportasi', 'TransportasiController@index');
+Route::post('transportasi', 'TransportasiController@store');
+Route::put('transportasi', 'TransportasiController@update');
+Route::delete('transportasi', 'TransportasiController@destroy');
+
 Route::get('tag', 'TagController@index');
 Route::post('tag', 'TagController@store');
 Route::put('tag', 'TagController@update');

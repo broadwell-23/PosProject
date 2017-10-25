@@ -17,8 +17,8 @@
     <link href="{{ asset('assets/css/demo.css') }}" rel="stylesheet" />
 
     <!--     Fonts and icons     -->
-    <!-- <link href='http://fonts.googleapis.com/css?family=Montserrat:400,300,700' rel='stylesheet' type='text/css'>
-    <link href="http://maxcdn.bootstrapcdn.com/font-awesome/latest/css/font-awesome.min.css" rel="stylesheet"> -->
+    <link href='http://fonts.googleapis.com/css?family=Montserrat:400,300,700' rel='stylesheet' type='text/css'>
+    <link href="http://maxcdn.bootstrapcdn.com/font-awesome/latest/css/font-awesome.min.css" rel="stylesheet">
     <link href="{{ asset('assets/css/nucleo-icons.css') }}" rel="stylesheet" />
 
     <link rel="stylesheet" type="text/css" href="{{ asset('DataTables/datatables.css') }}">
@@ -35,7 +35,7 @@
                     <span class="navbar-toggler-bar"></span>
                 </button>
                 <a class="navbar-brand" href="#top">
-                    <img style="width: 30px" src="{{ asset('images/pos_indonesia.png') }}"> Sistem Informasi Barang
+                    <img style="width: 30px" src="{{ asset('images/pos_indonesia.png') }}">  Sistem Informasi Barang
                 </a>
             </div>
             <div class="collapse navbar-collapse" id="navbarToggler">
@@ -55,6 +55,15 @@
                             Kotak Pesan
                         </a>
                     </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Lainnya</a>
+                        <ul class="dropdown-menu dropdown-menu-right dropdown-danger">
+                            <li class="dropdown-header" href="#pk">Fitur Lainnya</li>
+                            <li class="dropdown-item"><a href="http://www.posindonesia.co.id/tnt/?ii=tarif-kiriman" target="_blank">Tarif Kiriman</a></li>
+                            <li class="dropdown-item"><a href="http://www.posindonesia.co.id/tnt/?ii=lacak-kiriman" target="_blank">Lacak Kiriman</a></li>
+                            <li class="dropdown-item"><a href="http://ems.posindonesia.co.id/" target="_blank">EMS Pos Indonesia</a></li>
+                        </ul>
+                    </li>
                 </ul>
             </div>
         </div>
@@ -65,7 +74,7 @@
     		<div class="content-center">
     			<div class="container">
     				<div class="title-brand">
-    					<img style="width: 340px" src="{{ asset('images/pos_indonesia.png') }}">
+    					<img style="width: 350px" src="{{ asset('images/pos_indonesia.png') }}">
     				</div>
 
     				<h2 class="presentation-subtitle text-center">SISTEM INFORMASI BARANG</h2>
@@ -94,6 +103,7 @@
                         <th>Dokumen Pendukung</th>
                         <th>Pengeluar Dokumen</th>
                         <th>Aturan</th>
+                        <th>Moda Transportasi</th>
                         <th><i>Tags</i></th>
                         <th>Keterangan</th>
                       </tr>
@@ -120,7 +130,12 @@
                         </td>
                         <td>
                           @foreach($data->aturans as $aturan)
-                            {{ $aturan->isi_aturan }}<br>
+                            <i class="fa fa-circle"></i> {{ $aturan->isi_aturan }}<br>
+                          @endforeach
+                        </td>
+                        <td>
+                          @foreach($data->transportasis as $transportasi)
+                            <span class="label label-danger">{{ $transportasi->moda_transportasi }}</span><br>
                           @endforeach
                         </td>
                         <td>
@@ -155,9 +170,9 @@
                       </tr>
                     </thead>
                     <tbody>
-                      @foreach($mitras as $no => $data)
+                      @foreach($mitras as $data)
                       <tr>
-                        <td>{{ $no+1 }}</td>
+                        <td>{{ $loop->iteration }}</td>
                         <td>{{ $data->nama_mitra }}</td>
                         <td>{{ $data->alamat }}</td>
                         <td>{{ $data->telp }}</td>
@@ -234,7 +249,7 @@
             <div class="row">
                 <nav class="footer-nav">
                     <ul>
-                        <li><a href="/login">Login Admin</a></li>
+                        <li><a href="/login" target="_blank">Login Admin</a></li>
                     </ul>
                 </nav>
                 <div class="credits ml-auto">

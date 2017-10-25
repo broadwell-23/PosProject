@@ -7,6 +7,7 @@ use App\Barang;
 use App\Packing;
 use App\Dokumen;
 use App\Aturan;
+use App\Transportasi;
 use App\Tag;
 
 class BarangController extends Controller
@@ -37,8 +38,9 @@ class BarangController extends Controller
         $packings = Packing::all();
         $dokumens = Dokumen::all();
         $aturans = Aturan::all();
+        $transportasis = Transportasi::all();
         $tags = Tag::all();
-        return view('barang.tambah', compact('packings', 'dokumens', 'aturans', 'tags'));
+        return view('barang.tambah', compact('packings', 'dokumens', 'aturans', 'transportasis', 'tags'));
     }
 
     public function indexUbah($id)
@@ -55,12 +57,16 @@ class BarangController extends Controller
         $aturan_barang = Barang::find($id);
         $selected_aturans = $aturan_barang->aturans()->get();
 
+        $transportasis = Transportasi::all();
+        $transportasi_barang = Barang::find($id);
+        $selected_transportasis = $transportasi_barang->transportasis()->get();
+
         $tags = Tag::all();
         $tag_barang = Barang::find($id);
         $selected_tags = $tag_barang->tags()->get();
 
         $data = Barang::find($id);
-        return view('barang.ubah', compact('data', 'packings', 'dokumens', 'aturans', 'tags', 'selected_packings', 'selected_dokumens', 'selected_aturans', 'selected_tags'));
+        return view('barang.ubah', compact('data', 'packings', 'dokumens', 'aturans', 'transportasis', 'tags', 'selected_packings', 'selected_dokumens', 'selected_aturans', 'selected_transportasis', 'selected_tags'));
     }
 
     public function store(Request $request)
@@ -72,6 +78,7 @@ class BarangController extends Controller
         $data->packings()->attach($request->packing_id);
         $data->dokumens()->attach($request->dokumen_id);
         $data->aturans()->attach($request->aturan_id);
+        $data->transportasis()->attach($request->transportasi_id);
         $data->tags()->attach($request->tag_id);
 
 	    session(['message' => 'bTambah']);
@@ -87,6 +94,7 @@ class BarangController extends Controller
         $data->packings()->sync($request->packing_id);
         $data->dokumens()->sync($request->dokumen_id);
         $data->aturans()->sync($request->aturan_id);
+        $data->transportasis()->sync($request->transportasi_id);
         $data->tags()->sync($request->tag_id);
 
         session(['message' => 'bUbah']);
@@ -99,6 +107,7 @@ class BarangController extends Controller
         $data->packings()->detach($request->packing_id);
         $data->dokumens()->detach($request->dokumen_id);
         $data->aturans()->detach($request->aturan_id);
+        $data->transportasis()->detach($request->transportasi_id);
         $data->tags()->detach($request->tag_id);
         $data->delete();
 

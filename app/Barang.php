@@ -24,6 +24,11 @@ class Barang extends Model
         return $this->belongsToMany('App\Aturan', 'aturan_barang', 'barang_id', 'aturan_id');
     }
 
+    public function transportasis()
+    {
+        return $this->belongsToMany('App\Transportasi', 'transportasi_barang', 'barang_id', 'transportasi_id');
+    }
+
     public function tags()
     {
         return $this->belongsToMany('App\Tag', 'tag_barang', 'barang_id', 'tag_id');

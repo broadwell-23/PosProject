@@ -44,7 +44,7 @@
       <!-- /admin -->
 
       <!-- barang -->
-      <li class="{{ (Request::is('barang')||Request::is('packing')||Request::is('dokumen')||Request::is('aturan')||Request::is('tag')||Request::is('barang/tambah')) ? 'active open' : '' }}">
+      <li class="{{ (Request::is('barang')||Request::is('packing')||Request::is('dokumen')||Request::is('aturan')||Request::is('transportasi')||Request::is('tag')||Request::is('barang/tambah')) ? 'active open' : '' }}">
         <a href="javascript:;">
           <i class="fa fa-briefcase"></i>
           <span>Informasi Barang</span>
@@ -55,7 +55,7 @@
               <span>Daftar Barang</span>
             </a>
           </li>
-          <li class="{{ (Request::is('packing')||Request::is('dokumen')||Request::is('aturan')||Request::is('tag')) ? 'active open' : '' }}">
+          <li class="{{ (Request::is('packing')||Request::is('dokumen')||Request::is('aturan')||Request::is('transportasi')||Request::is('tag')) ? 'active open' : '' }}">
             <a href="/barang">
               <span>Detail Barang</span>
             </a>
@@ -73,6 +73,11 @@
               <li class="{{ Request::is('aturan') ? 'active' : '' }}">
                 <a href="/aturan">
                   <span>Aturan</span>
+                </a>
+              </li>
+              <li class="{{ Request::is('transportasi') ? 'active' : '' }}">
+                <a href="/transportasi">
+                  <span>Moda Transportasi</span>
                 </a>
               </li>
               <li class="{{ Request::is('tag') ? 'active' : '' }}">
@@ -100,7 +105,7 @@
         <a href="/pesan">
           <i class="fa fa-comment"></i>
           <span>Pesan Masuk</span>
-          <span class="label label-success pull-right">
+          <span class="label label-warning pull-right">
             {{ App\Pesan::where('status', 1)->count() }}
           </span>
         </a>

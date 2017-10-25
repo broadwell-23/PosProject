@@ -21,7 +21,7 @@
 <link rel="stylesheet" href="{{ asset('vendor/clockpicker/dist/bootstrap-clockpicker.min.css') }}">
 <link rel="stylesheet" href="{{ asset('vendor/mjolnic-bootstrap-colorpicker/dist/css/bootstrap-colorpicker.min.css') }}">
 <link rel="stylesheet" href="{{ asset('vendor/bootstrap-touchspin/dist/jquery.bootstrap-touchspin.min.css') }}">
-<link rel="stylesheet" href="{{ asset('vendor/datatables/media/css/jquery.dataTables.css') }}">
+<link rel="stylesheet" href="{{ asset('DataTables/datatables.css') }}">
 <!-- /page level plugin styles -->
 @endpush
 
@@ -77,7 +77,7 @@
       </a>
     </div>
     <div class="panel-body">
-      <table class="table table-striped datatable editable-datatable responsive align-middle bordered">
+      <table id="datatable" class="table table-striped datatable responsive align-middle bordered">
         <thead>
           <tr>
             <th>No</th>
@@ -86,39 +86,45 @@
             <th>Dokumen Pendukung</th>
             <th>Pengeluar Dokumen</th>
             <th>Aturan</th>
+            <th>Moda Transportasi</th>
             <th><i>Tags</i></th>
             <th>Keterangan</th>
             <th></th>
           </tr>
         </thead>
         <tbody>
-          @foreach($datas as $no => $data)
+          @foreach($datas as $data)
           <tr>
-            <td>{{ $no+1 }}</td>
+            <td>{{ $loop->iteration }}</td>
             <td>{{ $data->nama_barang }}</td>
             <td>
-              @foreach($data->packings()->get() as $packing)
+              @foreach($data->packings as $packing)
                 <span class="label label-danger">{{ $packing->nama_packing }}</span><br>
               @endforeach
             </td>
             <td>
-              @foreach($data->dokumens()->get() as $dokumen)
+              @foreach($data->dokumens as $dokumen)
                 <span class="label label-default">{{ $dokumen->nama_dokumen }}</span><br>
               @endforeach
             </td>
             <td>
-              @foreach($data->dokumens()->get() as $dokumen)
+              @foreach($data->dokumens as $dokumen)
                 <span class="label label-default">{{ $dokumen->pengeluar_dokumen }}</span><br>
               @endforeach
             </td>
             <td>
-              @foreach($data->aturans()->get() as $aturan)
-                {{ $aturan->isi_aturan }}<br>
+              @foreach($data->aturans as $aturan)
+                <i class="fa fa-circle"></i> {{ $aturan->isi_aturan }}<br>
               @endforeach
             </td>
             <td>
-              @foreach($data->tags()->get() as $tag)
-                <span class="label label-primary">{{ $tag->nama_tag }}</span><br>
+              @foreach($data->transportasis as $transportasi)
+                <span class="label label-success">{{ $transportasi->moda_transportasi }}</span>
+              @endforeach
+            </td>
+            <td>
+              @foreach($data->tags as $tag)
+                <span class="label label-primary">{{ $tag->nama_tag }}</span>
               @endforeach
             </td>
             <td>{{ $data->keterangan }}</td>
@@ -171,14 +177,29 @@
 @endsection
 
 @push('scripts')
-<!-- page level scripts -->
-<script src="{{ asset('vendor/datatables/media/js/jquery.dataTables.js') }}"></script>
-<!-- /page level scripts -->
-
-<!-- initialize page scripts -->
-<script src="{{ asset('scripts/extentions/bootstrap-datatables.js') }}"></script>
-<script src="{{ asset('scripts/pages/table-edit.js') }}"></script>
-<!-- /initialize page scripts -->
+<!-- DataTables -->
+<script src="{{ asset('DataTables/datatables.js') }}"></script>
+<script>
+    $(document).ready( function () {
+        $('#datatable').DataTable( {
+            language: {
+            processing:     "Sedang memproses...",
+            search:         "Pencarian&nbsp;:",
+            emptyTable:     "Tabel kosong",
+            lengthMenu:     "Tampilkan _MENU_ data",
+            emptyTable:     "Tidak ada data pada tabel",
+            info:           "Menampilkan _START_ sampai _END_ data dari total data _TOTAL_",
+            infoEmpty:      "Menampilkan 0 sampai 0 data dari total data 0",
+            paginate: {
+                "first":      "Pertama",
+                "last":       "Terakhir",
+                "next":       "Selanjutnya",
+                "previous":   "Sebelumnya"
+            },
+            }
+        });
+    } );
+</script>
 
 <!-- page level scripts -->
 <script src="{{ asset('vendor/chosen_v1.4.0/chosen.jquery.min.js') }}"></script>

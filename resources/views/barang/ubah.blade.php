@@ -71,10 +71,8 @@
                 </select>
               </div>
               <div class="col-sm-1">
-                <a href="/packing">
-                  <button class="btn btn-success btn-icon-icon btn mr5 pull-right">
+                <a href="/packing" class="btn btn-success btn-icon-icon btn mr5 pull-right">
                   <i class="fa fa-plus"></i>
-                </button>
                 </a>
               </div>
             </div>
@@ -95,10 +93,8 @@
                 </select>
               </div>
               <div class="col-sm-1">
-                <a href="/dokumen">
-                  <button class="btn btn-success btn-icon-icon btn mr5 pull-right">
+                <a href="/dokumen" class="btn btn-success btn-icon-icon btn mr5 pull-right">
                   <i class="fa fa-plus"></i>
-                </button>
                 </a>
               </div>
             </div>
@@ -119,10 +115,30 @@
                 </select>
               </div>
               <div class="col-sm-1">
-                <a href="/aturan">
-                  <button class="btn btn-success btn-icon-icon btn mr5 pull-right">
+                <a href="/aturan" class="btn btn-success btn-icon-icon btn mr5 pull-right">
                   <i class="fa fa-plus"></i>
-                </button>
+                </a>
+              </div>
+            </div>
+            <div class="form-group">
+              <label class="col-sm-2 control-label">Moda Transportasi</label>
+              <div class="col-xs-9 mb25">
+                <select name="transportasi_id[]" data-placeholder="Pilih Transportasi" multiple class="chosen" style="width: 100%;">
+                  <option value=""></option>
+                  @foreach($transportasis as $data)
+                    <option value="{{ $data->id }}"
+                      @foreach($selected_transportasis as $selected) 
+                        @if($data->id==$selected->id)
+                          selected
+                        @endif
+                      @endforeach
+                    >{{ $data->moda_transportasi }}</option>
+                  @endforeach
+                </select>
+              </div>
+              <div class="col-sm-1">
+                <a href="/transportasi" class="btn btn-success btn-icon-icon btn mr5 pull-right">
+                  <i class="fa fa-plus"></i>
                 </a>
               </div>
             </div>
@@ -143,10 +159,8 @@
                 </select>
               </div>
               <div class="col-sm-1">
-                <a href="/tag">
-                  <button class="btn btn-success btn-icon-icon btn mr5 pull-right">
+                <a href="/tag" class="btn btn-success btn-icon-icon btn mr5 pull-right">
                   <i class="fa fa-plus"></i>
-                </button>
                 </a>
               </div>
             </div>

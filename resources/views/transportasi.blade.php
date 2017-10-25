@@ -2,7 +2,7 @@
 
 @section('title')
 
-<i class="fa fa-comment"></i> Daftar Pesan Masuk
+<i class="fa fa-briefcase"></i> Moda Transportasi
 
 @endsection
 
@@ -16,22 +16,31 @@
 
 <!-- main area -->
 <div class="main-content">
-  @if(session()->get('message')=="bUbah")
+  @if(session()->get('message')=="bTambah")
   <!-- Success Alert -->
-  <div class="alert alert-info alert-dismissable">
+  <div class="alert alert-success alert-dismissable">
     <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
-    Yay! Status berhasil di<strong>ubah</strong>.
+    Yay! Data pada aplikasi berhasil di<strong>tambah</strong>.
   </div>
   <!-- /Success Alert -->
   {{session()->forget('message')}}
   @endif
+  @if(session()->get('message')=="bUbah")
+  <!-- Info Alert -->
+  <div class="alert alert-info alert-dismissable">
+    <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+    Yay! Data pada aplikasi berhasil di<strong>ubah</strong>.
+  </div>
+  <!-- /Info Alert -->
+  {{session()->forget('message')}}
+  @endif
   @if(session()->get('message')=="bHapus")
-  <!-- Success Alert -->
+  <!-- Danger Alert -->
   <div class="alert alert-danger alert-dismissable">
     <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
-    Yay! Pesan berhasil di<strong>hapus</strong>.
+    Yay! Data pada aplikasi berhasil di<strong>hapus</strong>.
   </div>
-  <!-- /Success Alert -->
+  <!-- /Danger Alert -->
   {{session()->forget('message')}}
   @endif
   <div class="panel">
@@ -40,37 +49,37 @@
         <li>
           <a href="dashboard">Admin Panel</a>
         </li>
-        <li class="active">Pesan Masuk</li>
+        <li>
+          <a href="#">Informasi Barang</a>
+        </li>
+        <li>
+          <a href="#">Detail Barang</a>
+        </li>
+        <li class="active">Moda Transportasi</li>
       </ol>
+    </div>
+    <div class="panel-heading">
+      <button data-target="#modalTambah" class="btn btn-success btn-round btn-icon" style="float: right" data-toggle="modal">
+        <i class="fa fa-plus"></i>
+        <span>Tambah Data</span>
+      </button>
     </div>
     <div class="panel-body">
       <table id="datatable" class="table table-striped datatable responsive align-middle bordered">
         <thead>
           <tr>
             <th>No</th>
-            <th>Nama</th>
-            <th>Isi Pesan</th>
-            <th>Dikirim Pada</th>
-            <th>Status</th>
+            <th>Moda Transportasi</th>
             <th></th>
           </tr>
         </thead>
         <tbody>
-          @foreach($datas as $no => $data)
+          @foreach($datas as $data)
           <tr>
-            <td>{{ $no+1 }}</td>
-            <td>{{ $data->nama }}</td>
-            <td>{{ $data->isi_pesan }}</td>
-            <td>{{ $data->created_at }}</td>
-            <td>
-              @if($data->status==1)
-                <span class="label label-warning">Belum Ditanggapi</span>
-              @else
-                <span class="label label-default">Sudah Ditanggapi</span>
-              @endif
-            </td>
+            <td>{{ $loop->iteration }}</td>
+            <td>{{ $data->moda_transportasi }}</td>
             <td class="text-center">
-              <button data-target="#modalUbah{{$data->id}}" class="btn btn-info btn-outline btn-xs" data-toggle="modal"><i class="fa fa-pencil"></i> Status</button>
+              <button data-target="#modalUbah{{$data->id}}" class="btn btn-info btn-outline btn-xs" data-toggle="modal"><i class="fa fa-pencil"></i></button>
               <button data-target="#modalHapus{{$data->id}}" class="btn btn-danger btn-outline btn-xs" data-toggle="modal"><i class="fa fa-trash"></i></button>
             </td>
           </tr>
@@ -82,6 +91,40 @@
 </div>
 <!-- /main area -->
 
+<!-- modalTambah -->
+<div id="modalTambah" class="modal bs-modal-sm" tabindex="-1" role="dialog" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+        <div class="panel panel-success">
+          <div class="panel-heading">
+            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+            <h4 class="modal-title">Tambah Moda Transportasi</h4>
+          </div>
+        </div>
+      <div class="modal-body">
+        <form method="POST" class="form-horizontal" role="form">
+          {{ csrf_field() }}
+          <div class="form-group">
+            <label class="col-sm-3 control-label">Moda Transportasi<small><sup><i class="fa fa-star" style="color: red"></i></sup></small></label>
+            <div class="col-sm-8">
+              <input name="moda_transportasi" type="text" class="form-control" required>
+            </div>
+          </div>
+        </div>
+        <div class="modal-footer bordered">
+          <div class="col-sm-3">
+            <small><p><sup><i class="fa fa-star" style="color: red"></i></sup>tidak boleh kosong</p></small>
+          </div>
+          <div class="col-sm-9">
+            <button type="submit" class="btn btn-success btn-outline btn-round">Simpan</button>
+          </div>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
+<!-- /modalTambah -->
+
 @foreach($datas as $data)
 <!-- modalUbah -->
 <div id="modalUbah{{$data->id}}" class="modal bs-modal-sm" tabindex="-1" role="dialog" aria-hidden="true">
@@ -90,7 +133,7 @@
         <div class="panel panel-info">
           <div class="panel-heading">
             <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
-            <h4 class="modal-title">Ubah Status Pesan</h4>
+            <h4 class="modal-title">Ubah Moda Transportasi</h4>
           </div>
         </div>
       <div class="modal-body">
@@ -98,33 +141,20 @@
           <input type="hidden" name="id" value="{{ $data->id }}">
           {{ method_field('PUT') }} 
           {{ csrf_field() }}                                    
-          <center>
-          Status Pesan : 
-            <div class="btn-group" data-toggle="buttons">
-              @if($data->status==1)
-              <label class="btn btn-default no-margin active">
-                <input name="status" type="radio" name="options" id="option1" value="1">
-                <i class="fa fa-close mr5"></i>Belum Ditanggapi
-              </label>
-              <label class="btn btn-default">
-                <input name="status" type="radio" name="options" id="option2" value="0">
-                <i class="fa fa-check mr5"></i>Sudah Ditanggapi
-              </label>
-              @else
-              <label class="btn btn-default">
-                <input name="status" type="radio" name="options" id="option1" value="1">
-                <i class="fa fa-close mr5"></i>Belum Ditanggapi
-              </label>
-              <label class="btn btn-default no-margin active">
-                <input name="status" type="radio" name="options" id="option2" value="0">
-                <i class="fa fa-check mr5"></i>Sudah Ditanggapi
-              </label>
-              @endif
+          <div class="form-group">
+            <label class="col-sm-3 control-label">Moda Transportasi<small><sup><i class="fa fa-star" style="color: red"></i></sup></small></label>
+            <div class="col-sm-8">
+              <input name="moda_transportasi" type="text" class="form-control" value="{{ $data->moda_transportasi }}" required>
             </div>
-          </center>
+          </div>
         </div>
         <div class="modal-footer bordered">
-          <button type="submit" class="btn btn-info btn-outline btn-round">Simpan</button>
+          <div class="col-sm-3">
+            <small><p><sup><i class="fa fa-star" style="color: red"></i></sup>tidak boleh kosong</p></small>
+          </div>
+          <div class="col-sm-9">
+            <button type="submit" class="btn btn-info btn-outline btn-round">Simpan</button>
+          </div>
         </div>
       </form>
     </div>
@@ -139,7 +169,7 @@
         <div class="panel panel-danger">
           <div class="panel-heading">
             <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
-            <h4 class="modal-title">Hapus Pesan</h4>
+            <h4 class="modal-title">Hapus Moda Transportasi</h4>
           </div>
         </div>
       <div class="modal-body">
@@ -147,7 +177,7 @@
           <input type="hidden" name="id" value="{{ $data->id }}">
           {{ method_field('DELETE') }} 
           {{ csrf_field() }}       
-          <center>Satu Pesan dari <strong>{{ $data->nama }}</strong> Akan Dihapus, Apakah Anda Yakin?</center>
+          <center>Moda Transportasi <strong>{{ $data->moda_transportasi }}</strong> Akan Dihapus, Apakah Anda Yakin?</center>
         </div>
         <div class="modal-footer bordered">
           <button type="button" class="btn btn-default btn-outline btn-round" data-dismiss="modal">Tidak</button>

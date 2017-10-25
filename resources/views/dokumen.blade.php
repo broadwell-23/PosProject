@@ -8,7 +8,7 @@
 
 @push('stylesheets')
 <!-- page level plugin styles -->
-<link rel="stylesheet" href="{{ asset('vendor/datatables/media/css/jquery.dataTables.css') }}">
+<link rel="stylesheet" href="{{ asset('DataTables/datatables.css') }}">
 <!-- /page level plugin styles -->
 @endpush
 
@@ -65,7 +65,7 @@
       </button>
     </div>
     <div class="panel-body">
-      <table class="table table-striped datatable editable-datatable responsive align-middle bordered">
+      <table id="datatable" class="table table-striped datatable responsive align-middle bordered">
         <thead>
           <tr>
             <th>No</th>
@@ -221,12 +221,27 @@
 @endsection
 
 @push('scripts')
-<!-- page level scripts -->
-<script src="{{ asset('vendor/datatables/media/js/jquery.dataTables.js') }}"></script>
-<!-- /page level scripts -->
-
-<!-- initialize page scripts -->
-<script src="{{ asset('scripts/extentions/bootstrap-datatables.js') }}"></script>
-<script src="{{ asset('scripts/pages/table-edit.js') }}"></script>
-<!-- /initialize page scripts -->
+<!-- DataTables -->
+<script src="{{ asset('DataTables/datatables.js') }}"></script>
+<script>
+    $(document).ready( function () {
+        $('#datatable').DataTable( {
+            language: {
+            processing:     "Sedang memproses...",
+            search:         "Pencarian&nbsp;:",
+            emptyTable:     "Tabel kosong",
+            lengthMenu:     "Tampilkan _MENU_ data",
+            emptyTable:     "Tidak ada data pada tabel",
+            info:           "Menampilkan _START_ sampai _END_ data dari total data _TOTAL_",
+            infoEmpty:      "Menampilkan 0 sampai 0 data dari total data 0",
+            paginate: {
+                "first":      "Pertama",
+                "last":       "Terakhir",
+                "next":       "Selanjutnya",
+                "previous":   "Sebelumnya"
+            },
+            }
+        });
+    } );
+</script>
 @endpush
