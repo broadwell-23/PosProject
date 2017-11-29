@@ -65,6 +65,11 @@ Route::post('mitra', 'MitraController@store');
 Route::put('mitra', 'MitraController@update');
 Route::delete('mitra', 'MitraController@destroy');
 
+Route::get('kamus', 'KamusController@index')->name('kamus');
+Route::post('kamus', 'KamusController@store');
+Route::put('kamus', 'KamusController@update');
+Route::delete('kamus', 'KamusController@destroy');
+
 Route::get('pesan', 'PesanController@index')->name('pesan');
 Route::put('pesan', 'PesanController@update');
 Route::delete('pesan', 'PesanController@destroy');

@@ -87,6 +87,7 @@
             <th>Pengeluar Dokumen</th>
             <th>Aturan</th>
             <th>Moda Transportasi</th>
+            <th>Tujuan</th>
             <th><i>Tags</i></th>
             <th>Keterangan</th>
             <th></th>
@@ -121,6 +122,13 @@
               @foreach($data->transportasis as $transportasi)
                 <span class="label label-success">{{ $transportasi->moda_transportasi }}</span>
               @endforeach
+            </td>
+            <td>
+              @if($data->tujuan==1)
+              DN
+              @else
+              LN
+              @endif
             </td>
             <td>
               @foreach($data->tags as $tag)

@@ -6,15 +6,17 @@ use Illuminate\Http\Request;
 use App\Barang;
 use App\Mitra;
 use App\Pesan;
+use App\Kamus;
 
 class WebController extends Controller
 {
     public function index()
     {
-        $datas = Barang::all();
-        $mitras = Mitra::all();
+        $datas = Barang::orderBy('nama_barang', 'asc')->get();
+        $mitras = Mitra::orderBy('nama_mitra', 'asc')->get();
+        $kamuses = Kamus::orderBy('nama_kata', 'asc')->get();
 
-        return view('web', compact('datas', 'mitras'));
+        return view('web', compact('datas', 'mitras', 'kamuses'));
     }
 
     public function store(Request $request)

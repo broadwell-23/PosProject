@@ -143,6 +143,32 @@
               </div>
             </div>
             <div class="form-group">
+              <label class="col-sm-2 control-label">Tujuan</label>
+              <div class="col-xs-9 mb25">
+                <div class="btn-group" data-toggle="buttons">
+                  @if($data->tujuan==2)
+                  <label class="btn btn-default no-margin active">
+                    <input name="tujuan" type="radio" name="options" id="option1" value="2">
+                    Luar Negeri
+                  </label>
+                  <label class="btn btn-default">
+                    <input name="tujuan" type="radio" name="options" id="option2" value="1">
+                    Dalam Negeri
+                  </label>
+                  @else
+                  <label class="btn btn-default">
+                    <input name="tujuan" type="radio" name="options" id="option1" value="2">
+                    Luar Negeri
+                  </label>
+                  <label class="btn btn-default no-margin active">
+                    <input name="tujuan" type="radio" name="options" id="option2" value="1">
+                    Dalam Negeri
+                  </label>
+                  @endif
+                </div>
+              </div>
+            </div>
+            <div class="form-group">
               <label class="col-sm-2 control-label"><i>Tags</i></label>
               <div class="col-xs-9 mb25">
                 <select name="tag_id[]" data-placeholder="Pilih Tag" multiple class="chosen" style="width: 100%;">

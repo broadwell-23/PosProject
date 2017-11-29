@@ -100,6 +100,15 @@
       </li>
       <!-- /mitra -->
 
+      <!-- kamus -->
+      <li class="{{ Request::is('kamus') ? 'active' : '' }}">
+        <a href="{{ route('kamus') }}">
+          <i class="fa fa-book"></i>
+          <span>Kamus Istilah</span>
+        </a>
+      </li>
+      <!-- /kamus -->
+
       <!-- pesan -->
       <li class="{{ Request::is('pesan') ? 'active' : '' }}">
         <a href="{{ route('pesan') }}">

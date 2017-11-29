@@ -74,6 +74,7 @@ class BarangController extends Controller
 	    $data = new Barang;
 	    $data->nama_barang = $request->nama_barang;
 	    $data->keterangan = $request->keterangan;
+        $data->tujuan = $request->tujuan;
 	    $data->save();
         $data->packings()->attach($request->packing_id);
         $data->dokumens()->attach($request->dokumen_id);
@@ -90,6 +91,7 @@ class BarangController extends Controller
         $data = Barang::find($id);
         $data->nama_barang = $request->nama_barang;
         $data->keterangan = $request->keterangan;
+        $data->tujuan = $request->tujuan;
         $data->save();
         $data->packings()->sync($request->packing_id);
         $data->dokumens()->sync($request->dokumen_id);

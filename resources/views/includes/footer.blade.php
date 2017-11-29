@@ -14,7 +14,7 @@
   <nav class="footer-left">
     <ul class="nav">
       <li>
-        <a href="javascript:;">
+        <a href="http://farizky.xyz" target="_blank">
           <img style="width: 30px" src="{{ asset('images/pos_indonesia.png') }}"><strong> SISTEM INFORMASI BARANG </strong><i class="fa fa-copyright"></i> 2017 <span>Broadwell-</span> 
         </a>
       </li>

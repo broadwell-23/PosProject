@@ -47,7 +47,12 @@
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" title="Tabel Mitra" href="#tabel_mitra">
-                            Tabel Mitra
+                            Info Mitra
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" title="Tabel Mitra" href="#kamus_istilah">
+                            Kamus Istilah
                         </a>
                     </li>
                     <li class="nav-item">
@@ -94,18 +99,18 @@
                             </div>
                         </nav>
                     </div>
-                  <table id="table1" class="table table-striped datatable responsive align-middle bordered">
+                  <table id="table1" class="table table-striped datatable responsive align-middle bordered compact">
                     <thead>
                       <tr>
                         <th>No</th>
                         <th>Nama Barang</th>
-                        <th><i>Packing</i></th>
                         <th>Dokumen Pendukung</th>
                         <th>Pengeluar Dokumen</th>
-                        <th>Aturan</th>
                         <th>Moda Transportasi</th>
+                        <th>Tujuan</th>
                         <th><i>Tags</i></th>
                         <th>Keterangan</th>
+                        <th>Detil</th>
                       </tr>
                     </thead>
                     <tbody>
@@ -114,75 +119,110 @@
                         <td>{{ $loop->iteration }}</td>
                         <td>{{ $data->nama_barang }}</td>
                         <td>
-                          @foreach($data->packings as $packing)
-                            <span class="label label-danger">{{ $packing->nama_packing }}</span><br>
+                          @foreach($data->dokumens as $dokumen)
+                            {{ $dokumen->nama_dokumen }} , 
                           @endforeach
                         </td>
                         <td>
                           @foreach($data->dokumens as $dokumen)
-                            <span class="label label-default">{{ $dokumen->nama_dokumen }}</span><br>
-                          @endforeach
-                        </td>
-                        <td>
-                          @foreach($data->dokumens as $dokumen)
-                            <span class="label label-default">{{ $dokumen->pengeluar_dokumen }}</span><br>
-                          @endforeach
-                        </td>
-                        <td>
-                          @foreach($data->aturans as $aturan)
-                            <i class="fa fa-circle"></i> {{ $aturan->isi_aturan }}<br>
+                            {{ $dokumen->pengeluar_dokumen }} , 
                           @endforeach
                         </td>
                         <td>
                           @foreach($data->transportasis as $transportasi)
-                            <span class="label label-danger">{{ $transportasi->moda_transportasi }}</span><br>
+                            {{ $transportasi->moda_transportasi }} , 
                           @endforeach
                         </td>
                         <td>
+                          @if($data->tujuan==1)
+                          DN
+                          @else
+                          LN
+                          @endif
+                        </td>
+                        <td>
                           @foreach($data->tags as $tag)
-                            <span class="label label-danger">{{ $tag->nama_tag }}</span><br>
+                            {{ $tag->nama_tag }} ,
                           @endforeach
                         </td>
                         <td>{{ $data->keterangan }}</td>
+                        <td>
+                            <button type="button" class="btn btn-outline-danger btn-round" data-toggle="modal" data-target="#modalDetil{{$data->id}}">
+                                Detil
+                            </button>
+                        </td>
                       </tr>
                       @endforeach
                     </tbody>
                   </table>
                 </div>
-            </div>
-            <div class="section section-buttons" id="tabel_mitra">
-                <div class="container">
+                <div class="container" id="tabel_mitra">
                     <div class="tim-title text-center">
                         <nav class="navbar bg-danger">
                             <div class="container">
-                                <span class="navbar-brand text-center">Tabel Informasi Mitra</span>
+                                <a href="#" id="mitra"><span class="navbar-brand text-center">
+                                    Tabel Informasi Mitra <i class="fa fa-chevron-down"></i>
+                                </span></a>
                             </div>
                         </nav>
                     </div>
-                  <table id="table2" class="table table-striped datatable responsive align-middle bordered">
-                    <thead>
-                      <tr>
-                        <th>No</th>
-                        <th>Nama Mitra</th>
-                        <th>Alamat</th>
-                        <th>Telpon</th>
-                        <th>Fax</th>
-                      </tr>
-                    </thead>
-                    <tbody>
-                      @foreach($mitras as $data)
-                      <tr>
-                        <td>{{ $loop->iteration }}</td>
-                        <td>{{ $data->nama_mitra }}</td>
-                        <td>{{ $data->alamat }}</td>
-                        <td>{{ $data->telp }}</td>
-                        <td>{{ $data->fax }}</td>
-                      </tr>
-                      @endforeach
-                    </tbody>
-                  </table>
+                    <div id="mitratable" style="display: none;">
+                      <table id="table2" class="table table-striped datatable responsive align-middle bordered compact">
+                        <thead>
+                          <tr>
+                            <th>No</th>
+                            <th>Nama Mitra</th>
+                            <th>Alamat</th>
+                            <th>Telpon</th>
+                            <th>Fax</th>
+                          </tr>
+                        </thead>
+                        <tbody>
+                          @foreach($mitras as $data)
+                          <tr>
+                            <td>{{ $loop->iteration }}</td>
+                            <td>{{ $data->nama_mitra }}</td>
+                            <td>{{ $data->alamat }}</td>
+                            <td>{{ $data->telp }}</td>
+                            <td>{{ $data->fax }}</td>
+                          </tr>
+                          @endforeach
+                        </tbody>
+                      </table>
+                    </div>
                 </div>
-            </div>    
+                <div class="container" id="kamus_istilah">
+                    <div class="tim-title text-center">
+                        <nav class="navbar bg-danger">
+                            <div class="container">
+                                <a href="#" id="kamus"><span class="navbar-brand text-center">
+                                    Tabel Kamus Istilah <i class="fa fa-chevron-down"></i>
+                                </span></a>
+                            </div>
+                        </nav>
+                    </div>
+                    <div id="kamustable" style="display: none;">
+                      <table id="table3" class="table table-striped datatable responsive align-middle bordered">
+                        <thead>
+                          <tr>
+                            <th>No</th>
+                            <th>Nama Kata</th>
+                            <th>Arti Kata</th>
+                          </tr>
+                        </thead>
+                        <tbody>
+                          @foreach($kamuses as $data)
+                          <tr>
+                            <td>{{ $loop->iteration }}</td>
+                            <td>{{ $data->nama_kata }}</td>
+                            <td>{{ $data->arti_kata }}</td>
+                          </tr>
+                          @endforeach
+                        </tbody>
+                      </table>
+                    </div>
+                </div>
+            </div>   
             <div class="section section-image section-login" style="background-image: url({{ asset('assets/img/indonesia.png') }});" id="kotak_pesan">
                 <div class="container">
                     <div class="row">
@@ -254,13 +294,125 @@
                 </nav>
                 <div class="credits ml-auto">
                     <span class="copyright">
-                        © <script>document.write(new Date().getFullYear())</script> Broadwell-
+                        © <script>document.write(new Date().getFullYear())</script><a href="http://farizky.xyz" target="_blank"> Broadwell-</a>
                     </span>
                 </div>
             </div>
         </div>
     </footer>
 </body>
+
+@foreach($datas as $data)
+<!-- modalDetil -->
+<div class="modal fade" id="modalDetil{{$data->id}}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title text-center" id="exampleModalLabel"><strong>Detil Informasi</strong></h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <div class="row">
+                    <div class="col-sm-3">Nama Barang</div>
+                    <div class="col-sm-9">
+                        <strong>:&nbsp
+                         {{ $data->nama_barang }}
+                        </strong><br>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-sm-3">Packing</div>
+                    <div class="col-sm-9">
+                        <strong>:&nbsp
+                        @foreach($data->packings as $packing)
+                            {{ $packing->nama_packing }} , 
+                        @endforeach
+                        </strong>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-sm-3">Dokumen</div>
+                    <div class="col-sm-9">
+                        <strong>:&nbsp
+                        @foreach($data->dokumens as $dokumen)
+                            {{ $dokumen->nama_dokumen }} , 
+                        @endforeach
+                        </strong>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-sm-3">Pengeluar Dokumen</div>
+                    <div class="col-sm-9">
+                        <strong>:&nbsp
+                        @foreach($data->dokumens as $dokumen)
+                            {{ $dokumen->pengeluar_dokumen }} , 
+                        @endforeach
+                        </strong>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-sm-3">Aturan</div>
+                    <div class="col-sm-9">
+                        <strong>:&nbsp
+                        @foreach($data->aturans as $aturan)
+                            {{ $aturan->isi_aturan }} , 
+                        @endforeach
+                        </strong>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-sm-3">Transportasi</div>
+                    <div class="col-sm-9">
+                        <strong>:&nbsp
+                        @foreach($data->transportasis as $transportasi)
+                            {{ $transportasi->moda_transportasi }} , 
+                        @endforeach
+                        </strong>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-sm-3">Tujuan</div>
+                    <div class="col-sm-9">
+                        <strong>:&nbsp
+                        @if($data->tujuan==1)
+                          DN
+                        @else
+                          LN
+                        @endif
+                        </strong>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-sm-3">Tags</div>
+                    <div class="col-sm-9">
+                        <strong>:&nbsp
+                        @foreach($data->tags as $tag)
+                            {{ $tag->nama_tag }} , 
+                        @endforeach
+                        </strong>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-sm-3">Keterangan</div>
+                    <div class="col-sm-9">
+                        <strong>:&nbsp
+                        {{ $data->keterangan }}
+                        </strong>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <div class="left-side">
+                    <button type="button" class="btn btn-default btn-link" data-dismiss="modal">Tutup</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- /modalDetil -->
+@endforeach
 
 <!-- Core JS Files -->
 <script src="{{ asset('assets/js/jquery-3.2.1.js') }}" type="text/javascript"></script>
@@ -322,6 +474,41 @@
             }
         });
     } );
+    $(document).ready( function () {
+        $('#table3').DataTable( {
+            language: {
+            processing:     "Sedang memproses...",
+            search:         "Pencarian&nbsp;:",
+            emptyTable:     "Tabel kosong",
+            lengthMenu:     "Tampilkan _MENU_ data",
+            emptyTable:     "Tidak ada data pada tabel",
+            info:           "Menampilkan _START_ sampai _END_ data dari total data _TOTAL_",
+            infoEmpty:      "Menampilkan 0 sampai 0 data dari total data 0",
+            paginate: {
+                "first":      "Pertama",
+                "last":       "Terakhir",
+                "next":       "Selanjutnya",
+                "previous":   "Sebelumnya"
+            },
+            }
+        });
+    } );
+</script>
+
+<!-- Toggle Hide/Show -->
+<script type="text/javascript">
+    $(function() {
+        $('a#mitra').click(function() {
+            $('div#mitratable').toggle(500);
+            return false;
+        });
+    });
+    $(function() {
+        $('a#kamus').click(function() {
+            $('div#kamustable').toggle(500);
+            return false;
+        });
+    });
 </script>
 
 </html>
