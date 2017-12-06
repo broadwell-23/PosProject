@@ -66,7 +66,10 @@ class BarangController extends Controller
         $selected_tags = $tag_barang->tags()->get();
 
         $data = Barang::find($id);
-        return view('barang.ubah', compact('data', 'packings', 'dokumens', 'aturans', 'transportasis', 'tags', 'selected_packings', 'selected_dokumens', 'selected_aturans', 'selected_transportasis', 'selected_tags'));
+        $keterangan = $data->keterangan;
+        $tujuan = $data->tujuan;
+
+        return view('barang.ubah', compact('data', 'keterangan', 'tujuan', 'packings', 'dokumens', 'aturans', 'transportasis', 'tags', 'selected_packings', 'selected_dokumens', 'selected_aturans', 'selected_transportasis', 'selected_tags'));
     }
 
     public function store(Request $request)

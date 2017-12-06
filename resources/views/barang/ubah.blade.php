@@ -145,27 +145,16 @@
             <div class="form-group">
               <label class="col-sm-2 control-label">Tujuan</label>
               <div class="col-xs-9 mb25">
-                <div class="btn-group" data-toggle="buttons">
-                  @if($data->tujuan==2)
-                  <label class="btn btn-default no-margin active">
-                    <input name="tujuan" type="radio" name="options" id="option1" value="2">
-                    Luar Negeri
-                  </label>
-                  <label class="btn btn-default">
-                    <input name="tujuan" type="radio" name="options" id="option2" value="1">
-                    Dalam Negeri
-                  </label>
+                <select name="tujuan" data-placeholder="Pilih Tujuan" class="chosen" style="width: 100%;">
+                  <option value=""></option>
+                  @if($tujuan==2)
+                  <option value="1">Dalam Negeri</option>
+                  <option value="2" selected>Luar Negeri</option>
                   @else
-                  <label class="btn btn-default">
-                    <input name="tujuan" type="radio" name="options" id="option1" value="2">
-                    Luar Negeri
-                  </label>
-                  <label class="btn btn-default no-margin active">
-                    <input name="tujuan" type="radio" name="options" id="option2" value="1">
-                    Dalam Negeri
-                  </label>
+                  <option value="1" selected>Dalam Negeri</option>
+                  <option value="2">Luar Negeri</option>
                   @endif
-                </div>
+                </select>
               </div>
             </div>
             <div class="form-group">
@@ -193,7 +182,7 @@
             <div class="form-group">
               <label class="col-sm-2 control-label">Keterangan</label>
               <div class="col-sm-10">
-                <input name="keterangan" type="text" class="form-control" value="{{ $data->keterangan }}">
+                <input name="keterangan" type="text" class="form-control" value="{{ $keterangan }}">
               </div>
             </div>
             <div class="form-group">
